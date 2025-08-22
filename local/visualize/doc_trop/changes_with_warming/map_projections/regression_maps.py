@@ -38,7 +38,6 @@ def import_relative_module(module_name, plot_path):
 mS =    import_relative_module('user_specs',                                        'utils')
 cL = import_relative_module('util_cmip.model_letter_connection',                    'utils')
 gC = import_relative_module('util_calc.correlations.gridbox_regression',            'utils')
-# gC = import_relative_module('util_calc.correlations.gridbox_correlation',           'utils')
 
 # == get model subsets ==
 def in_subset(model):
@@ -65,7 +64,7 @@ def in_subset(model):
         'CNRM-ESM2-1',                                                                                                              # 19 
         # 'EC-Earth3',                                                                                                              # 20 
         'CNRM-CM6-1',                                                                                                               # 21
-        # 'CNRM-CM6-1-HR',                                                                                                          # 22  # no clouds
+        # 'CNRM-CM6-1-HR',                                                                                                          # 22
         'KACE-1-0-G',                                                                                                               # 23            
         'IPSL-CM6A-LR',                                                                                                             # 24
         'ACCESS-CM2',                                                                                                               # 25 
@@ -94,8 +93,6 @@ def get_metric(data_type_group, data_type, dataset, t_freq, metric_group, metric
             )       
     path = f'{folder}/{filename}.nc'
     metric = xr.open_dataset(path)
-    # print(metric)
-    # exit()
     if not metric_var:
         print('choose a metric variation')
         print(metric)
@@ -103,7 +100,7 @@ def get_metric(data_type_group, data_type, dataset, t_freq, metric_group, metric
         exit()
     else:
         metric = metric[metric_var]
-        if metric_var == 'tas_gradients_oni':
+        if metric_var == 'tas_gradients_oni':                                                                                       # rolling-mean metric, doesn't have values for start and end
             metric = metric.ffill(dim='time')                                                                                       # Forward fill   (fill last value for 3 month rolling mean)
             metric = metric.bfill(dim='time')                                                                                       # Backward fill  (fill first value for 3 month rolling mean)
     return metric
@@ -113,29 +110,6 @@ def ds_to_variable(ds):
     data_arrays = [ds[var] for var in ds.data_vars]
     da = xr.concat(data_arrays, dim = 'variable')
     return da
-
-def sig_most_agree(ds, threshold_frac = 0.5):
-    ''' Find where most models agree on the sign of the correlation for a gridbox '''
-    data_arrays = [ds[var] for var in ds.data_vars]     # convert the variables to a data array
-    da = xr.concat(data_arrays, dim = 'variable')
-    true_counts = da.sum(dim = 'variable')              # True + False + True = 2
-    nb_threshold = len(ds.data_vars) * threshold_frac   # number of models requred to agree
-    return (true_counts > nb_threshold).astype(bool)
-
-def corr_most_agree(ds, da_corr, threshold_frac = 0.5):
-    model_mean_sign = np.sign(da_corr)                     # sign of model-mean
-    data_arrays = [ds[var] for var in ds.data_vars]                 # convert the variables to a data array
-    da = xr.concat(data_arrays, dim = 'variable')
-    signs = xr.apply_ufunc(np.sign, da)
-    agreement = (signs == model_mean_sign)
-    agreement_counts = agreement.sum(dim='variable')
-    nb_threshold = len(ds.data_vars) * threshold_frac
-    return (agreement_counts > nb_threshold).astype(bool)
-
-def calc_model_mean(ds):
-    data_arrays = [ds[var] for var in ds.data_vars]                 # convert the variables to a data array
-    da_models = xr.concat(data_arrays, dim = 'variable')
-    return da_models.mean(dim = 'variable')
 
 # == plot ==
 def scale_ax(ax, scaleby):
@@ -193,13 +167,12 @@ def plot_ylabel(fig, ax, text):
 def cbar_ax_below(fig, ax, h):
     ax_position = ax.get_position()
     w = 0.5
-    cbar_ax = fig.add_axes([ax_position.x0 + (ax_position.width - ax_position.width * w) / 2,                                 # left
-                            ax_position.y0 - 0.25,                                                                            # bottom
-                            ax_position.width * w,                                                                            # width
+    cbar_ax = fig.add_axes([ax_position.x0 + (ax_position.width - ax_position.width * w) / 2,                                   # left
+                            ax_position.y0 - 0.25,                                                                              # bottom
+                            ax_position.width * w,                                                                              # width
                             ax_position.height * 0.1                                                                            # height
                             ])      
     cbar = fig.colorbar(h, cax = cbar_ax, orientation = 'horizontal')
-    # cbar.ax.tick_params(labelsize = 7)
     formatter = ticker.ScalarFormatter(useMathText = True)
     formatter.set_scientific(True)
     formatter.set_powerlimits((-1, 1))
@@ -209,25 +182,24 @@ def cbar_ax_below(fig, ax, h):
 
 def plot_cbar_label(fig, ax, text):
     ax_position = ax.get_position()
-    ax.text(ax_position.x0 - 0.25, # + (ax_position.width * 0.), 
+    ax.text(ax_position.x0 - 0.25,
             ax_position.y0 - 0.25, 
             text, 
             ha = 'left', 
-            # fontsize = 7, 
             transform = fig.transFigure
             )
     
 def plot_ax_title(fig, ax, text):
     ax_position = ax.get_position()
-    ax.text(ax_position.x0 - 0.1225,                                                                                              # x-start
-            ax_position.y1 + 0.1,                                                                                              # y-start
+    ax.text(ax_position.x0 - 0.1225,                                                                                            # x-start
+            ax_position.y1 + 0.1,                                                                                               # y-start
             text,                         
             transform=fig.transFigure,
             )
     
 def plot_cbar_label2(fig, ax, text):
     ax_position = ax.get_position()
-    ax.text(ax_position.x1 + 0.135,                                                                                                     # x-start
+    ax.text(ax_position.x1 + 0.135,                                                                                             # x-start
             ax_position.y0 + (ax_position.y1 - ax_position.y0) / 2,                                                             # y-start
             text,                                                                              
             rotation = 'vertical', 
@@ -236,9 +208,10 @@ def plot_cbar_label2(fig, ax, text):
             )
 
 def plot(map_corr, map_sig, regression_coeff = None, da_c = None):
+    # -- set general fontsize --    
     plt.rcParams['font.size'] = 8
     # -- create figure --    
-    width, height = 8.5, 3.25                                                                                                            # max: 15.9, 24.5 for 1 inch margins [cm]
+    width, height = 8.5, 3.25                                                                                                   # max: 15.9, 24.5 for 1 inch margins [cm]
     width, height = [f / 2.54 for f in [width, height]]                                                                         # function takes inches
     ncols, nrows  = 1, 1
     fig, ax = plt.subplots(nrows, ncols, figsize = (width, height))
@@ -262,51 +235,39 @@ def plot(map_corr, map_sig, regression_coeff = None, da_c = None):
     vmax = None
     vmin = None 
 
-    # conv_map
-    vmax = 1e-4
-    vmin = -vmax
+    # [conv_map]
+    # vmax = 0.5e-4
+    # vmin = -vmax
 
-    # tas_map
+    # [tas_map]
     # vmax = 3e-5
     # vmin = -vmax 
 
-    # LCF
+    # [LCF]
     # vmax = 1e-4
     # vmin = -vmax 
 
-    # rel_humid
+    # [rel_humid]
     # vmax = 1e-4
     # vmin = -vmax 
 
-    # rel_humid_cm
+    # [rel_humid_cm]
     # vmax = 6e-2
     # vmin = -vmax 
 
-    # rel_humid_cz
+    # [rel_humid_cz]
     # vmax = 1e-2
     # vmin = -vmax 
 
-    # LCF_cz
+    # [LCF_cz]
     # vmax = 1e-2
     # vmin = -vmax 
 
-    # LCF_cm
+    # [LCF_cm]
     # vmax = 7.5e-2
     # vmin = -vmax 
 
-    # other
-    # vmax = 0.75e-4
-    # vmin = - vmax
-    # vmax = 1.25e-5
-    # vmin = - vmax
-    # vmax = 1e-4
-    # vmin = - vmax 
-
-    # vmax = 5e-2
-    # vmin = - vmax 
-
     # -- plot data --
-    # h = ax.pcolormesh(lonm, latm, regression_coeff.where(map_sig, np.nan), 
     h = ax.pcolormesh(lonm, latm, regression_coeff, 
                         transform=ccrs.PlateCarree(), 
                         cmap = 'RdBu', 
@@ -320,11 +281,11 @@ def plot(map_corr, map_sig, regression_coeff = None, da_c = None):
         ax.plot(lon[x], lat[y], 'kx', transform=ccrs.PlateCarree(), markersize = 0.1) # 'kx' for black crosses
 
     # -- put contour --
-    contours = ax.contour(lonm, latm, da_c, 
-                        transform = ccrs.PlateCarree(),
-                        levels =        [da_c.quantile(0.90, dim=('lat', 'lon')).data],
-                        colors =        'k', 
-                        linewidths =    0.5)
+    ax.contour(lonm, latm, da_c, 
+                            transform = ccrs.PlateCarree(),
+                            levels =        [da_c.quantile(0.90, dim=('lat', 'lon')).data],
+                            colors =        'k', 
+                            linewidths =    0.5)
 
     # -- put colorbar --
     cbar_ax = cbar_ax_below(fig, ax, h)
@@ -333,27 +294,35 @@ def plot(map_corr, map_sig, regression_coeff = None, da_c = None):
 # == main ==
 def main():
     # -- x-metric --
-    x_tfreq,    x_group,    x_name, x_var,  x_label,    x_units = 'daily',    'conv',         'conv_map_correlation',  'mean_area',        r'A$_m$',       r'km$^2$'
+    x_tfreq,    x_group,    x_name, x_var,  x_label,    x_units = 'daily',    'doc_metrics',      'mean_area',            'mean_area',                                r'A$_m$',       r'km$^2$'    
     # x_tfreq,    x_group,    x_name, x_var,  x_label,    x_units = 'daily',    'doc_metrics',      'reference_proximity',  'reference_proximity_eq_hydro',             r'C$_{heq}$',   r'km'      
     # x_tfreq,   x_group,   x_name,    x_var, x_label,   x_units =  'daily',    'doc_metrics',      'reference_proximity',  'reference_proximity_meridional_line',      r'C$_z$',       r'km'  
     # x_tfreq,   x_group,   x_name,    x_var, x_label,   x_units =  'daily',    'doc_metrics',      'reference_proximity',  'reference_proximity_zonal_line',           r'C$_m$',       r'km'      
     # x_tfreq,   x_group,   x_name,    x_var, x_label,   x_units =  'monthly',  'wap',              'wap_timeseries',       'wap_timeseries_mean',                      r'A$_a$',       r'%'  
     
+    # -- y-metric --
+    # y_tfreq,   y_group,   y_name,   y_var,  y_label,   y_units =  'daily',    'conv',             'conv_map',             'conv_map_mean',                            r'C',           r'%'      
+    y_tfreq,   y_group,   y_name,   y_var,  y_label,   y_units =  'monthly',  'tas',              'tas_map',              'tas_map_mean',                             r'Ts',           r'K'     
+    # y_tfreq,   y_group,   y_name,   y_var,  y_label,   y_units =  'monthly',  'clouds',           'clouds_map',           'clouds_map_low_mean',                      r'LCF',         r'%'      
+    # y_tfreq,   y_group,   y_name,   y_var,  y_label,   y_units =  'monthly',  'rel_humid_mid',    'rel_humid_map',        'rel_humid_map_mean',                       r'RH',          r'%'     
+
+    # -- normalize with --
+    n_tfreq,   n_group,   n_name,   n_var,  n_label,  n_units =   'monthly',  'tas',              'tas_map',              'tas_map_mean',                             r'T',           r'K$^{-1}$'    
+
     # -- contour --
-    c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'daily',    'conv',             'conv_map',             'conv_map_mean',                            r'C',           r'%'      
-    # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'monthly',  'tas',              'tas_map',              'tas_map_mean',                             r'C',           r'K'      
+    # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'daily',    'conv',             'conv_map',             'conv_map_mean',                            r'C',           r'%'      
+    c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'monthly',  'tas',              'tas_map',              'tas_map_mean',                             r'C',           r'K'      
     # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'monthly',  'clouds',           'clouds_map',           'clouds_map_low_mean',                      r'LCF',         r'%'   
     # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =  'monthly',  'rel_humid_mid',    'rel_humid_map',        'rel_humid_map_mean',                       r'RH',          r'[%]'     
 
-    print(f'plotting {Path(__file__).stem}: x: {x_var}, c: {c_var}')
-    # exit()
+    print(f'plotting {Path(__file__).stem}: x: {x_var}, y: {y_var}, n: {n_var}, c: {c_var}')
 
     # -- CMIP metrics --
     ds_x = xr.Dataset()
-    ds_x_p = xr.Dataset()
+    ds_y = xr.Dataset()
     ds_c = xr.Dataset()
     for model in cL.get_model_letters():
-        if x_group == 'clouds' and not in_subset(model):
+        if y_group == 'clouds' and not in_subset(model):
             continue
         data_type_group, data_tyoe, dataset = 'models', 'cmip', model
         lon_area =  '0:360'                                                                                                                                                                             
@@ -361,41 +330,47 @@ def main():
         res =       2.8    
         # -- historical --
         time_period =      '1970-01:1999-12'
-        x_corr = get_metric(data_type_group, data_tyoe, dataset, x_tfreq, x_group, x_name, lon_area, lat_area, res, time_period, f'{x_name}_vs_{x_var}_corr')
-        x = get_metric(data_type_group, data_tyoe, dataset, x_tfreq, x_group, x_name, lon_area, lat_area, res, time_period, f'{x_name}_vs_{x_var}_regress')
-        x_p = get_metric(data_type_group, data_tyoe, dataset, x_tfreq, x_group, x_name, lon_area, lat_area, res, time_period, f'{x_name}_vs_{x_var}_sig')
+        x = get_metric(data_type_group, data_tyoe, dataset, x_tfreq, x_group, x_name, lon_area, lat_area, res, time_period, x_var)
+        y = get_metric(data_type_group, data_tyoe, dataset, y_tfreq, y_group, y_name, lon_area, lat_area, res, time_period, y_var)
+        n = get_metric(data_type_group, data_tyoe, dataset, n_tfreq, n_group, n_name, lon_area, lat_area, res, time_period, n_var)
         c = get_metric(data_type_group, data_tyoe, dataset, c_tfreq, c_group, c_name, lon_area, lat_area, res, time_period, c_var)
-        ds_x[model] = x
-        ds_x_p[model] = x_p
+
+        # -- warm --
+        time_period =      '2070-01:2099-12'    
+        x_warm = get_metric(data_type_group, data_tyoe, dataset, x_tfreq, x_group, x_name, lon_area, lat_area, res, time_period, x_var)
+        y_warm = get_metric(data_type_group, data_tyoe, dataset, y_tfreq, y_group, y_name, lon_area, lat_area, res, time_period, y_var)
+        n_warm = get_metric(data_type_group, data_tyoe, dataset, n_tfreq, n_group, n_name, lon_area, lat_area, res, time_period, n_var)
+
+        # -- pre-process metric --
+        dn = n_warm.mean(dim = ('lat', 'lon'))  - n.mean(dim = ('lat', 'lon'))
+        dx = x_warm.mean(dim = 'time')          - x.mean(dim = 'time')
+        dy = y_warm                             - y
+        dx = dx / dn
+        dy = dy / dn
+
+        ds_x[model] = dx
+        ds_y[model] = dy
         ds_c[model] = c
 
     # -- calculate plot metric --
-    map_corr =      calc_model_mean(ds_x)                                       # model-mean correlation
-    da_sign_agree = corr_most_agree(ds_x, map_corr, threshold_frac = 0.5)       # check if most models agree on that model-mean sign
-    da_sig_agree =  sig_most_agree(ds_x_p, threshold_frac = 0.5)                # check where most models agree on significance    
-    map_sig =       da_sig_agree.where(da_sign_agree, False)                    # where most models agree significant and most models agree on sign
     da_c = ds_to_variable(ds_c).mean(dim = 'variable')
+    da_1d = ds_to_variable(ds_x)
+    da_3d = ds_to_variable(ds_y)
+    map_corr, map_sig, regression_coeff = gC.calculate_correlation_and_significance(da_1d, da_3d)
 
-    # -- plot --
-    regression_coeff = map_corr
+    # -- plot data --
     fig, ax, cbar_ax = plot(map_corr, map_sig, regression_coeff, da_c = da_c)
-    text = f'cross-model: x: {x_var}, c: {c_var}'
-    # plot_ax_title(fig, ax, text)
 
-    text = rf'dC / d{x_label} [%/{x_units}]'
-    # text = f'r(Am, C) []'
+    # -- plot labels --
+    text = rf'd{y_label} / d{x_label} [{y_units}{n_units}/{x_units}{n_units}]'
     plot_cbar_label(fig, cbar_ax, text)
 
     # -- save figure --
     folder_work, folder_scratch, SU_project, storage_project, data_projects = mS.get_user_specs(show = False)
     filename = f'{Path(__file__).stem}'
     folder = f'{folder_scratch}/{Path(__file__).parents[2].name}/{Path(__file__).parents[1].name}/{Path(__file__).parents[0].name}/{filename}'
-    plot_name = f'x_{x_var}'
+    plot_name = f'x_{x_var}_y_{y_var}_n_{n_var}'
     path = f'{folder}/{plot_name}.svg'
-
-    # print(path)
-    # exit()
-
     os.makedirs(os.path.dirname(path), exist_ok=True)
     fig.savefig(path, dpi = 150)
     print(f'plot saved at: {path}')

@@ -249,16 +249,16 @@ def main():
     print(f'plotting {Path(__file__).stem}: x: {x_var}, y: {y_var}, c: {c_var}')
 
     # == get metric ==
-    lon_area =  '0:360'                                                                                                                                                                             
-    lat_area =  '-30:30'                                                                                                                                                                            
-    res =       2.8    
+    lon_area =      '0:360'                                                                                                                                                                             
+    lat_area =      '-30:30'                                                                                                                                                                            
+    res =           2.8    
+    time_period =   '1998-01:2022-12'    
     data_type_group, data_type, dataset = 'observations', 'GPCP', 'GPCP'
     # data_type_group, data_type, dataset = 'observations', 'ISCCP', 'ISCCP'
     # data_type_group, data_type, dataset = 'observations', 'NOAA', 'NOAA'
     # data_type_group, data_tyoe, dataset = 'observations', 'ERA5', 'ERA5'
     
     # -- central metric --
-    time_period = '1998-01:2022-12'    
     if y_group == 'clouds':
         map_corr = get_metric(data_type_group, data_type, dataset, y_tfreq, y_group, f'{y_name}_correlation', lon_area, lat_area, res, time_period, f'{y_name}_correlation_low_vs_{x_var}_corr')
         map_sig = get_metric(data_type_group, data_type, dataset, y_tfreq, y_group, f'{y_name}_correlation', lon_area, lat_area, res, time_period, f'{y_name}_correlation_low_vs_{x_var}_sig')
