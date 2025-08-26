@@ -15,7 +15,7 @@ The spatial organization of deep convection in tropical regions is posited to pl
 
 <br>
 
-### Repository structure
+**Repository structuret** 
 ```bash
 large-scale-clustering-of-tropical-precipitation/
 ├── LICENCE
@@ -75,7 +75,7 @@ large-scale-clustering-of-tropical-precipitation/
 
 ```
 
-### How to use repository
+**How to use repository** 
 Scripts to generate metrics are found in the "gadi" folder. <br>
 These metrics can also be found on Zenodo: <br>
 Link: <br>
