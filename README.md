@@ -13,9 +13,7 @@ DOI: '' <br>
 **Abstract** <br>
 The spatial organization of deep convection in tropical regions is posited to play an important role in determining characteristics of the tropical climate such as the humidity distribution and cloudiness and may therefore be an important control on climate feedbacks. This study analyzes one aspect of convective organization, the clustering of heavy precipitation on large scales, in both interannual variability and under warming in future climate projections. Both observations and global climate models indicate that large-scale clustering is sensitive to the SST gradient in the Pacific, being largest during El Ni\~no events. Under future warming, models project an increase in clustering with a large intermodel spread. The increase is associated with a narrowing of the intertropical convergence zone, while the model spread is partially explained by differences in projections of the SST gradient in the Pacific. Both observations and models indicate large-scale clustering influences the cloud and humidity distributions, albeit with some differences. However, the intermodel spread in changes in clustering with warming is not related to the intermodel spread in projections of tropical-mean relative humidity or low cloudiness in regions of descent, precluding attempts to provide an observational constraint on feedbacks or climate sensitivity. Nevertheless, the tendency for a meridional contraction of precipitation explains about 45\% of the variance in projected drying, highlighting the narrowing of the ITCZ as an important aspect of large-scale convective organization in a warmer climate.  
 
-<br>
-
-**Repository structuret** 
+### Repository structure
 ```bash
 large-scale-clustering-of-tropical-precipitation/
 ├── LICENCE
@@ -75,7 +73,7 @@ large-scale-clustering-of-tropical-precipitation/
 
 ```
 
-**How to use repository** 
+### How to use repository
 Scripts to generate metrics are found in the "gadi" folder. <br>
 These metrics can also be found on Zenodo: <br>
 Link: <br>
