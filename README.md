@@ -1,8 +1,6 @@
 # Large-Scale Clustering of Tropical Precipitation and its Implications for the Radiation Budget across Timescales
 <br>
 <img src='logo.png' align="right" height="139" />
-
-### Overview
 This Github repository includes scripts that show how metrics and figures were generated for the paper: <br>
 "Large-Scale Clustering of Tropical Precipitation and its Implications for the Radiation Budget across Timescales" <br>
 DOI: '' <br>
