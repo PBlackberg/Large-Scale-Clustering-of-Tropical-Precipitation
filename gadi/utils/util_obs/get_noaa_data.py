@@ -4,9 +4,9 @@
 # ---------------
 NOAA - National Oceanic and Atmopsheric Administration
 https://psl.noaa.gov/data/gridded/
-https://psl.noaa.gov/data/gridded/data.noaa.oisst.v2.html
-https://downloads.psl.noaa.gov/Datasets/noaa.oisst.v2.highres/
-https://downloads.psl.noaa.gov/Datasets/gistemp/combined/250km/
+I've downloaded it and put it in a folder. Change this line:
+path_to_saved_data = '/g/data/k10/cb4968/data/observations/tas/sst.mnmean.nc'
+to where you save it
 
 '''
 
@@ -24,8 +24,8 @@ import utils.util_obs.conserv_interp       as cI
 # == get raw data ==
 def get_raw_data():
     ''' Download from website '''
-    path_gen = '/g/data/k10/cb4968/data/observations/tas/sst.mnmean.nc' # '/g/data/k10/cb4968/sample_data/tas/obs/sst.mnmean.nc'
-    return path_gen
+    path_to_saved_data = '/g/data/k10/cb4968/data/observations/tas/sst.mnmean.nc'
+    return path_to_saved_data
 
 
 # == pre-process ==
@@ -37,7 +37,7 @@ def pre_process(ds, dataset, regrid_resolution):
     # -- regrid --
     da = cI.conservatively_interpolate(da_in =              da.load(), 
                                         res =               regrid_resolution, 
-                                        switch_area =       None,                      # regrids the whole globe for the moment 
+                                        switch_area =       None,                      # regrids the whole globe
                                         simulation_id =     dataset
                                         )
     return da
@@ -57,8 +57,6 @@ def get_data(process_request, process_data_further):
     # -- concatenate --
     ds = xr.open_dataset(path_gen)
     ds = ds.sel(time = slice(year1, year2))
-    # print(ds)
-    # exit()
 
     # -- pre-process --
     da = pre_process(ds, dataset, regrid_resolution = resolution)
@@ -66,14 +64,11 @@ def get_data(process_request, process_data_further):
     # -- custom process --
     da = process_data_further(da)
 
-    return da # xr.Dataset(data_vars = {f'{var}': da}, attrs = ds.attrs)        
+    return da  
 
 
 # == when this script is ran ==
 if __name__ == '__main__':
-    # ds = xr.open_dataset('/g/data/k10/cb4968/data/observations/tas/sst.mnmean.nc')
-    # print(ds)
-    # exit()
     var =           'tas'
     dataset =       'NOAA'
     t_freq =        'monthly'
@@ -84,6 +79,6 @@ if __name__ == '__main__':
         ''
         return da
     ds = get_data(process_request, process_data_further)
-
     print(ds)
     exit()
+

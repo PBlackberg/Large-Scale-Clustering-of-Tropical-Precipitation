@@ -2,8 +2,9 @@
 # -----------------
 #   user_specs
 # -----------------
-Common directories
-project:    k10                     (standard)
+Put in your own paths to temporarily saved data (scratch) and data that is used for a longer time (work):
+ex:
+project:    k10
 scratch:    /scratch/k10/cb4968    
 work:       /g/data/k10/cb4968
 
@@ -56,5 +57,4 @@ if __name__ == '__main__':
     print('\n' * 2)
     folder_work, folder_scratch, SU_project, storage_project, data_projects = output
     [print(f) for f in output]
-
 

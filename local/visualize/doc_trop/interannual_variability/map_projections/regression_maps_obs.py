@@ -243,7 +243,7 @@ def main():
     c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'daily',         'conv',           'conv_map',             'conv_map_mean',                        r'C',           r'%'      
     # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'monthly',       'tas',            'tas_map',              'tas_map_mean',                         r'T',           r'K'      
     # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'monthly',       'clouds',         'cloud_map',            'cloud_map_low_mean',                   r'LCF',         r'%'  
-    # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'monthly',       'rel_humid_mid',  'rel_humid_map',        'rel_humid_map_low_mean',               r'RH',          r'%'
+    # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'monthly',       'rel_humid_mid',  'rel_humid_map',        'rel_humid_map_mean',               r'RH',          r'%'
     # c_tfreq,   c_group,   c_name,   c_var,  c_label,   c_units =   'monthly',       'wap',            'wap_map',              'wap_map_mean',                         r'$\omega$',    r'Pa day$^{-1}$'  
 
     print(f'plotting {Path(__file__).stem}: x: {x_var}, y: {y_var}, c: {c_var}')

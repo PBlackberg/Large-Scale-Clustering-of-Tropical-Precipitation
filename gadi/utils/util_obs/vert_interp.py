@@ -10,12 +10,6 @@
 import numpy as np
 import warnings
 
-# -- imported scripts --
-import os
-import sys
-sys.path.insert(0, os.getcwd())
-import utils.util_cmip.conserv_interp       as cI
-
 
 # == regrid ==
 def regrid_vert(da):                                                                                # does the same thing as scipy.interp1d, but quicker (can only be applied for models with 1D pressure coordinate)

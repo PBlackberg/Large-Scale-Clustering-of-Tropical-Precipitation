@@ -2,6 +2,8 @@
 # -----------------
 #   user_specs
 # -----------------
+Put in your own paths to temporarily saved data (scratch) and data that is used for a longer time (work):
+ex:
 /Users/cbla0002/Desktop/work
 /Users/cbla0002/Desktop/scratch
 '''
@@ -30,6 +32,4 @@ if __name__ == '__main__':
     output = get_user_specs()
     folder_work, folder_scratch, SU_project, storage_project, data_projects = output
     [print(f) for f in output]
-
-
 

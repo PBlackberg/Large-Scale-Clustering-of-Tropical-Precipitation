@@ -24,14 +24,12 @@ def pre_process(da, dataset, regrid_resolution):
     da = da.rename({'latitude': 'lat', 'longitude': 'lon'})
     # -- deal with nan values --
     valid_range = [0, 10000]                                                
-    da = da.where((da >= valid_range[0]) & (da <= valid_range[1]), np.nan)  # There are some e+33 values in the dataset
-    da = da.dropna('time', how='all')                                       # One day all values are NaN
-    da = da.where(da.sum(dim=['lat', 'lon']) != 0, drop=True)               # for a few days, all values are zero
-    
-    # -- remove duplicate days --                                           # this was surprisingly quick
+    da = da.where((da >= valid_range[0]) & (da <= valid_range[1]), np.nan)      # There are some e+33 values in the dataset
+    da = da.dropna('time', how='all')                                           # One day all values are NaN
+    da = da.where(da.sum(dim=['lat', 'lon']) != 0, drop=True)                   # for a few days, all values are zero
+    # -- remove duplicate days --                                               # this was surprisingly quick
     da_list = []
     for day in np.unique(da['time'].values):
-        # print(day)
         da_day = da.sel(time = day)
         try:
             length = len(da_day.time)
@@ -41,11 +39,10 @@ def pre_process(da, dataset, regrid_resolution):
         except:
             da_list.append(da_day)
     da = xr.concat(da_list, dim = 'time')
-
     # -- regrid --
     da = cI.conservatively_interpolate(da_in =              da.load(), 
                                         res =               regrid_resolution, 
-                                        switch_area =       None,                      # regrids the whole globe for the moment 
+                                        switch_area =       None,               # regrids the whole globe for the moment 
                                         simulation_id =     dataset
                                         )
     return da
@@ -54,7 +51,6 @@ def pre_process(da, dataset, regrid_resolution):
 # == get data ==
 def get_data(process_request, process_data_further):
     var, dataset, t_freq, resolution, time_period = process_request
-
     # -- get time_period --
     year1 = time_period.split(":")[0].split('-')[0]
     year2 = time_period.split(":")[1].split('-')[0]
@@ -63,7 +59,6 @@ def get_data(process_request, process_data_further):
     path_gen = '/g/data/ia39/aus-ref-clim-data-nci/gpcp/data/day/v1-3'
     years = range(int(year1), int(year2)+1)
     paths = [f'{path_gen}/gpcp_v1-3_day_{year}.nc' for year in years]
-    # print(paths[0])
 
     # -- concatenate --
     ds = xr.open_mfdataset(paths, combine='by_coords', parallel = True)
@@ -75,7 +70,7 @@ def get_data(process_request, process_data_further):
     # -- custom process --
     da = process_data_further(da)
     
-    return da # xr.Dataset(data_vars = {f'{var}': da}, attrs = ds.attrs)         
+    return da
 
 
 # == when this script is ran ==
@@ -94,10 +89,3 @@ if __name__ == '__main__':
     print(da)
     exit()
 
-
-
-
-
-    # ds = xr.open_dataset(paths[0])
-    # print(ds)
-    # exit()

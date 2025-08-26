@@ -12,13 +12,11 @@ import xarray as xr
 import numpy as np
 import glob
 
-
 # -- imported scripts --
 import os
 import sys
 sys.path.insert(0, os.getcwd())
 import utils.util_obs.conserv_interp    as cI
-import utils.util_obs.vert_interp       as vI
 
 
 # == get raw data ==
@@ -68,7 +66,6 @@ def get_files(var_name, var_nameERA, t_freq, year):
     files = sorted(files, key=lambda x: x.split("_")[-1].split(".")[0])
     return folder, files
 
-
 # == pre-process ==
 # -- convert units --
 def convert_units(da, var_nameERA, t_freq):
@@ -76,26 +73,24 @@ def convert_units(da, var_nameERA, t_freq):
     da = da.rename({'latitude': 'lat', 'longitude': 'lon'})
     da = da.sortby('lat')
     if 'level' in da.dims:
-        da['level'] = da['level']*100 # convert from millibar (hPa) to Pa
+        da['level'] = da['level']*100                                           # convert from millibar (hPa) to Pa
         da = da.rename({'level': 'plev'})
         da = da.sortby('plev', ascending = False)
-
     # -- daily --
     if t_freq == 'daily' and var_nameERA in ['slhf', 'sshf', 'strd', 'str', 'ttr', 'tisr', 'ssrd' , 'ssr', 'tsr']:
-        da = - da / (60 * 60 * 24)                                  # convert J/m^2 to W/m^2 (seems to be daily average value) Power (W) = Energy / Time  (rate/s), Energy = J/m^2 (direction is also positive in cmip and negative in ERA5 for rlut)
-    
+        da = - da / (60 * 60 * 24)                                              # convert J/m^2 to W/m^2 (seems to be daily average value) Power (W) = Energy / Time  (rate/s), Energy = J/m^2 (direction is also positive in cmip and negative in ERA5 for rlut)
     # -- monthly --
     elif t_freq == 'monthly' and var_nameERA in ['ttr', 'str', 'strd', 'tsr', 'tisr', 'ssr', 'ssrd', 'slhf', 'sshf', 'rss']:
-        da = da / (60 * 60 * 24)                                    # convert J/m^2 to W/m^2 Power (W) = Energy / Time  (rate)(s^-1), Energy = J/m^2
-    elif t_freq == 'monthly' and var_nameERA in ['ttr']:            # negative in ERA5, but positive in CMIP (ERA is net flux into atmosphere, whereas CMIP is upwelling flux)
-        da = - da                                                   #
-    elif t_freq == 'monthly' and var_nameERA in ['slhf', 'sshf']:   #
-        da = - da                                                   #
-    elif t_freq == 'monthly' and var_nameERA in ['w']:              #
-        da = da * 60 * 60 * 24 / 100                                # from pa/s to hpa/day
-    elif t_freq == 'monthly' and var_nameERA in ['cc']:             #
-        da = da * 100                                               # cloud fraction as percentage    
-    elif t_freq == 'monthly' and var_nameERA in ['q', 'r', 't', 'z']:             #
+        da = da / (60 * 60 * 24)                                                # convert J/m^2 to W/m^2 Power (W) = Energy / Time  (rate)(s^-1), Energy = J/m^2
+    elif t_freq == 'monthly' and var_nameERA in ['ttr']:                        # negative in ERA5, but positive in CMIP (ERA is net flux into atmosphere, whereas CMIP is upwelling flux)
+        da = - da                                                               #
+    elif t_freq == 'monthly' and var_nameERA in ['slhf', 'sshf']:               #
+        da = - da                                                               #
+    elif t_freq == 'monthly' and var_nameERA in ['w']:                          #
+        da = da * 60 * 60 * 24 / 100                                            # from pa/s to hpa/day
+    elif t_freq == 'monthly' and var_nameERA in ['cc']:                         #
+        da = da * 100                                                           # cloud fraction as percentage    
+    elif t_freq == 'monthly' and var_nameERA in ['q', 'r', 't', 'z']:           #
         pass
     else:
         print('variable not recognized')
@@ -105,21 +100,17 @@ def convert_units(da, var_nameERA, t_freq):
         exit()
     return da
 
-
 # -- pre-process --
 def pre_process(ds, var_nameERA, t_freq, dataset, regrid_resolution):
     # -- pick variable --
     da = ds[var_nameERA].load()
-
     # -- convert units and coodinates --
     da = convert_units(da, var_nameERA, t_freq)
-
     # -- get timefreq --
     if t_freq == 'daily':
         da = da.resample(time='1D').mean()
     elif t_freq == 'monthly':
         da = da.resample(time='MS').mean()
-
     # -- regrid --
     da = cI.conservatively_interpolate(da_in =              da.load(), 
                                         res =               regrid_resolution, 
@@ -127,7 +118,6 @@ def pre_process(ds, var_nameERA, t_freq, dataset, regrid_resolution):
                                         simulation_id =     dataset
                                         )
     return da
-
 
 # == handle time sections ==
 def get_timesections(n_jobs, time_period):
@@ -138,7 +128,6 @@ def get_timesections(n_jobs, time_period):
     time_sections = np.array_split(timesteps, n_jobs)                                                                               #
     return time_sections
 
-
 # == process one month at a time ==
 def get_one_month(var, t_freq, dataset, resolution, year, month, process_data_further):
     # -- get files --
@@ -146,19 +135,12 @@ def get_one_month(var, t_freq, dataset, resolution, year, month, process_data_fu
     folder, files = get_files(var, var_nameERA, t_freq, year)
     pattern = f"*{year}{month:02}*"
     files = glob.glob(f"{folder}/{pattern}")
-    # print(files)
-    # exit()
 
     # -- concatenate --
     ds = xr.open_mfdataset(files, combine='by_coords', parallel = True)
-    # print(ds)
-    # print(ds.nbytes / 1e9)
-    # exit()
 
     # -- pre-process --
     da = pre_process(ds, var_nameERA, t_freq, dataset, regrid_resolution = resolution)
-    # print(da)
-    # exit()
 
     # -- custom process --
     da = process_data_further(da)
@@ -183,25 +165,19 @@ def get_data(process_request, process_data_further):
 
 # == when this script is ran ==
 if __name__ == '__main__':    
-    # ds = xr.open_dataset('/g/data/rt52/era5/pressure-levels/monthly-averaged/q/1998/q_era5_moda_pl_19980101-19980131.nc')
-    # print(ds)
-    # exit()
     dataset = 'ERA5'
     var = 'hus'
     t_freq = 'monthly'
-    # t_freq = 'daily'
     resolution = 2.8
-    time_period = '1998-01:2022-12'     # if this is not given
+    time_period = '1998-01:2022-12'     # if this is not given:
     year = '1998'                       # then it picks out this
     month = '1'                         #
     process_request = [var, dataset, t_freq, resolution, time_period, year, month]
     def process_data_further(da):
-        # da = vI.regrid_vert(da)
+        ''
         return da
     da = get_data(process_request, process_data_further)    
     print(da)
-
-
 
     # ERA5 variables
     # Single level variables:
@@ -223,10 +199,4 @@ if __name__ == '__main__':
 
     # Pressure level variables:
     # cc  ciwc  clwc  crwc  cswc  d  o3  pv  q  r  t  u  v  vo  w  z
-
-
-
-
-
-
 

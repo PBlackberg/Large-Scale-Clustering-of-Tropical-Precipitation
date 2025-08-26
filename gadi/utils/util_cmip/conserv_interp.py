@@ -6,7 +6,9 @@
 '''
 
 # -- Packages --
+import numpy as np
 import xarray as xr
+import subprocess
 from pathlib import Path
 from tempfile import (NamedTemporaryFile, TemporaryDirectory)
 import os
@@ -19,7 +21,7 @@ import utils.user_specs as mS
 
 
 def run_cmd(cmd, path_extra=Path(sys.exec_prefix) / "bin"):
-    ''' Run a bash command (terminal command) and capture output '''
+    ''' Run a bash command (terminal command) and capture output (this function is also available in myFuncs_dask)'''
     env_extra = os.environ.copy()
     env_extra["PATH"] = str(path_extra) + ":" + env_extra["PATH"]
     status = run(cmd, check=False, stderr=PIPE, stdout=PIPE, env=env_extra)
@@ -76,6 +78,7 @@ def get_weights(da_in, simulation_id, x_res, y_res, folder_scratch, path_targetG
 
 def convert_grid(ds_in, folder_scratch, path_gridDes, path_weights, path_targetGrid):
     temp_dir = TemporaryDirectory(dir=f'{folder_scratch}/temp_process', prefix="remap_conserv_")
+    # try:
     path_dsOut, path_dsIn = Path(temp_dir.name) / "ds_out.nc", Path(temp_dir.name) / "ds_in.nc"
     ds_in.to_netcdf(path_dsIn, mode="w")  # Write the data to a temporary netcdf file
     command = [
@@ -101,4 +104,3 @@ def conservatively_interpolate(da_in, res, switch_area, simulation_id, full_doma
     ds_in = xr.Dataset(data_vars = {da_in.name: da_in}) 
     ds_out = convert_grid(ds_in, folder_scratch, path_gridDes, path_weights, path_targetGrid)
     return ds_out[da_in.name]
-
