@@ -85,7 +85,6 @@ large-scale-clustering-of-tropical-precipitation/
 ### How to use repository
 Scripts to generate metrics are found in the "gadi" folder. <br>
 These metrics can also be found on Zenodo: <br>
-Link: <br>
 DOI:  10.5281/zenodo.16946243 <br>
 Scripts to generate figures are found in the "local" folder. <br>
 Note: This repository only includes examples of how the key metrics and figures were generated. A more complete repository is available upon request.
