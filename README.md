@@ -77,8 +77,7 @@ Link: <br>
 DOI:  <br>
 Scripts to generate figures are found in the "local" folder <br>
 
-This repository only includes examples of how the key metrics and figures were generated. A more complete repository is available upon request by email with corresponding author: <br>
-philip.blackberg@monash.edu, carlphiliposcar@gmail.com <br>
+This repository only includes examples of how the key metrics and figures were generated. A more complete repository is available upon request.
 
 
 
