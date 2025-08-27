@@ -1,7 +1,7 @@
-# Local folder
+# local
 <br>
 <img src='logo.png' align="right" height="139" />
-This folder includes scripts to generate all figures (excluding figures from the supporting information) for the paper: "Large-Scale Clustering of Tropical Precipitation and its Implications for the Radiation Budget across Timescales" <br>
+This folder includes scripts to generate all figures for the paper: "Large-Scale Clustering of Tropical Precipitation and its Implications for the Radiation Budget across Timescales" (excluding figures from the supporting information) <br>
 
 ### Repository structure
 ```bash
