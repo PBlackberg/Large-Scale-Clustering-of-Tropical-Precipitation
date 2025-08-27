@@ -18,7 +18,7 @@ The spatial organization of deep convection in tropical regions is posited to pl
 large-scale-clustering-of-tropical-precipitation/
 ├── LICENCE
 ├── README.md
-├── gadi
+├── gadi/
 │   ├── get_metrics/
 │   │   ├── models/
 │   │   │   └── cmip/...
@@ -40,7 +40,7 @@ large-scale-clustering-of-tropical-precipitation/
 │   │           │   ├── main_func.py
 │   │           │   └── submit_as_job.py
 │   │           └── conv/
-│   │               └── conv_map_correlation
+│   │               └── conv_map_correlation/
 │   │                   ├── calc_metric.py
 │   │                   ├── main_func.py
 │   │                   └── submit_as_job.py
@@ -59,35 +59,31 @@ large-scale-clustering-of-tropical-precipitation/
 │   │    │   └── submission_funcs.py
 │   │    └── user_specs.py
 │   └── environment.yml
-└── local
-    ├── utils
-    │   ├── util_calc/...
-    │   │       └── anomalies/
-    │   │           └── monthly_anomalies/
-    │   │               └── detrend_anom.py
-    │   ├── util_cmip/
-    │   │   └── model_letter_connection.py
-    │   └── user_specs.py
-    ├── visualize
-    │    └── doc_trop/
-    │        ├── changes_with_warming/...
-    │        │    └── map_projections/
-    │        │        └── regression_maps.py
-    │        └── interannual_variability/...
-    │            └── boxplots/...
-    │                └── correlation_partial.py
-    └── environment.yml
-
-
-
+├── local/
+│    ├── visualize/
+│    │    └── doc_trop/
+│    │        ├── changes_with_warming/...
+│    │        │    └── map_projections/
+│    │        │        └── regression_maps.py
+│    │        └── interannual_variability/...
+│    │            └── boxplots/...
+│    │                └── correlation_partial.py
+│    ├── utils/
+│    │   ├── util_calc/...
+│    │   │       └── anomalies/
+│    │   │           └── monthly_anomalies/
+│    │   │               └── detrend_anom.py
+│    │   ├── util_cmip/
+│    │   │   └── model_letter_connection.py
+│    │   └── user_specs.py
+│    └── environment.yml
+└── levante/..
 ```
 
 ### How to use repository
-Scripts to generate metrics are found in the "gadi" folder. <br>
-These metrics can also be found on Zenodo: <br>
-DOI:  10.5281/zenodo.16946243 <br>
+Scripts to generate metrics from observations and Global Climate Models (GCMs) participating the in Coupled Model Inter-comparison project phase 6 (CMIP6), are found in the "gadi" folder. <br>
+Scripts to generate metrics from the high-resolution GCM: IFS 9 FESOM 5, participating in The Deutsches Klimarechenzentrum (DKRZ) Next Generation Earth Modelling Systems (NextGEMS) pre-final cycle, are found in the "levante" folder. <br>
+These metrics can also be found on Zenodo, DOI: 10.5281/zenodo.16946243 <br>
 Scripts to generate figures are found in the "local" folder. <br>
 Note: This repository only includes examples of how the key metrics and figures were generated. A more complete repository is available upon request.
-
-
 
