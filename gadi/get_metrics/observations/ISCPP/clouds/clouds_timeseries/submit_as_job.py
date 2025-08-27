@@ -39,10 +39,10 @@ sJ = import_relative_module('util_qsub.submission_funcs',   'utils')
 # == Set specs ==
 def set_specs():
     datasets = (                                                                                                                    #
-        'GPCP',                                                                                                                     # 1
+        'ISCCP',                                                                                                                    # 1
         )                                                                                                                           #
     t_freqs = (                                                                                                                     #
-        'daily',                                                                                                                    #
+        'monthly',                                                                                                                  #
         )                                                                                                                           #
     lon_areas = (                                                                                                                   # set lon extent
         '0:360',                                                                                                                    # Full domain
@@ -112,8 +112,8 @@ def main():
         [os.remove(path_temp) for path_temp in temp_files]                                                                          #
         # -- job resources (calc) --
         n_jobs_calc = 1                                                                                                             # Jobs specs (number of jobs)
-        walltime_calc = '0:30:00'                                                                                                   # job time for each section
-        mem_calc = '75GB'                                                                                                           # memory for each job
+        walltime_calc = '4:00:00'                                                                                                   # job time for each section
+        mem_calc = '100GB'                                                                                                          # memory for each job
         ncpus_calc = 1                                                                                                              # if parallelizing, do it on the months
         # -- divide time_period calc, in n sections -- 
         job_ids_calc = []                                                                                                           # make concat dependent on calc job completion of section results
@@ -158,7 +158,7 @@ def main():
         # -- concat job from section results --
         if switch.get('concat'):                                                                                                    # concatenates result from calc
             # print(f'-- submitting concat job, timeperiod: {p} --')
-            walltime_concat = '0:10:00'                                                                                             # job time
+            walltime_concat = '0:20:00'                                                                                             # job time
             mem_concat = '20GB'                                                                                                     # job mem
             ncpus_concat = 1                                                                                                        # job cpus
             walltime_concat = timedelta(hours=int(walltime_concat.split(':')[0]), minutes=int(walltime_concat.split(':')[1]))       # time for each job (max time given)
