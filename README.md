@@ -78,6 +78,21 @@ large-scale-clustering-of-tropical-precipitation/
 │    │   └── user_specs.py
 │    └── environment.yml
 └── levante/..
+    ├── get_data/..
+    │   └── models/
+    │       ├── ifs_low_res/
+    │           └── vars_2d/
+    │               └── pr_data/
+    │                   ├── helper_funcs/
+    │                   │   └── plot_func_map.py
+    │                   ├── plots/
+    │                   │   └── daily_field.png
+    │                   ├── calc_metric.py
+    │                   ├── main_func.py
+    │                   └── submit_as_job.p
+    ├── utils/..
+    │   └── user_specs.py
+    └── environment.yml
 ```
 
 ### How to use repository
