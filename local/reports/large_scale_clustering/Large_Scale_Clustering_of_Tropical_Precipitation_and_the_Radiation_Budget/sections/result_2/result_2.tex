@@ -1,0 +1,78 @@
+\section{SST Drivers of Heavy Rainfall Clustering}
+This section investigates the extent to which changes in the El Ni\~no-Southern Oscillation can explain changes in clustering across timescales. 
+We use the Oceanic Ni\~no Index \citep[ONI;][]{ONI_ref} to identify the state of the El Ni\~no-Southern Oscillation in interannual variability. 
+The ONI represents the three-month rolling average SST anomaly in the Ni\~no3.4 region (5$^\circ{}$S- 5$^\circ{}$N, 120$^\circ{}$-170$^\circ{}$W), calculated here relative to the full range of years used in the climatology. 
+ONI values greater than 0.5$^\circ{}$C represent El Ni\~no conditions and ONI values less than -0.5$^\circ{}$C represent La Ni\~na conditions. 
+The climatological East-West Pacific SST gradient, defined as the time-mean difference between 
+the SST in the western- (5$\degree$S - 5$\degree$N, 80$\degree$ - 150E) and eastern (5$\degree$S - 5$\degree$N, 180$\degree$ - 80$\degree$W) Pacific boxes, 
+which we denote $T_z$, 
+serves as an indicator for climatologically ``El Ni\~no-like'' conditions \citep{Watanabe2024}.
+Observations show several indications that highly clustered states, corresponding to large values of the mean area of heavy precipitation features, $A_m$, are associated with El Ni\~no-like conditions. 
+Firstly, SST regressed onto $A_m$ for interannual variability shows a pattern strongly reminiscent of an El Ni\~no SST signature \citep{Michael2002} (Figure \ref{mechanisms_obsMAP}). 
+Secondly, during times of ONI exceeding 0.5$^\circ{}$C compared to all days, $A_m$ increases as heavy precipitation moves from the maritime continent towards the central Pacific (Figure S7b in supporting information). 
+Finally, independent of changes in $A_f$, ONI shows a positive partial correlation with $A_m$ (Figure \ref{mechanisms_obsSCATTER}a). 
+Most CMIP models capture the observed connection between ONI and $A_m$ (Figure S1 in the supporting information) and the independent contribution of ONI on $A_m$ outside the influence of $A_f$, 
+as does the high-resolution GCM (Figure S3 in the supporting information and Figure \ref{mechanisms_obsSCATTER}b). 
+Thus both models and observations show that large-scale clustering of precipitation is stronger during El Ni\~no than La Ni\~na. 
+This is despite the fact that El Ni\~no represents a weakening of the Walker circulation and a weakening of tropical SST gradients, 
+both of which are generally thought to facilitate the organization of convection on large scales.
+
+\clearpage
+\begin{figure}
+    \centering
+    \includegraphics{sections/result_2/mechanisms1.pdf}
+    \caption{NOAA-GlobalTemp surface temperature, Ts, 
+    regressed onto $A_m$ for interannual variability. 
+    The contour shows the climatological 90th percentile of Ts, 
+    and crosses indicate whether correlations are statistically significant.}
+\label{mechanisms_obsMAP}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{sections/result_2/mechanisms2.pdf}
+    \caption{Same as Figure 3, 
+    but with the Oceanic Ni\~no Index (ONI) in scatter colors 
+    and as explanatory variable in boxplot.}
+\label{mechanisms_obsSCATTER}
+\end{figure}
+\clearpage
+
+The strong connection between El Ni\~no conditions and $A_m$ in interannual variability 
+motivates the investigation of changes in the climatological Pacific SST gradient to a more El Ni\~no-like state as a mechanism for explaining model-spread in projected changes to clustering. 
+Consistent with expectations, the magnitude of the weakening of the East-West Pacific SST gradient explains a similar amount of variance in projected changes in clustering as the zonal shift in heavy precipitation (Figure \ref{mechanisms_warmingSCATTER}). 
+Models that have more El Ni\~no-like warming patterns tend to exhibit larger increases in large-scale clustering of precipitation. 
+Regressing the SST changes against projected changes in the mean area of precipitation features, $A_m$, also shows an El-Ni\~no-like pattern, 
+with a relative warming in the east and relative cooling in the west (Figure \ref{mechanisms_warmingMAP}). 
+In addition, the regression pattern has a noticeable north-south gradient, 
+consistent with the positive regression coefficients for heavy precipitation frequency north of the equator in Figure \ref{spatial_preference_warmingMAP}. 
+
+We have shown that El Ni\~no-like states tend to result in a higher degree of clustering in both interannual variability and across the CMIP6 ensemble under climate change. 
+Note, however, that there are changes in the zonal SST gradient, $T_z$, and the mean distance of heavy precipitation to the central Pacific of both signs across the 27 CMIP6 models we analyse, 
+suggesting that zonal shifts in convection are not the primary reason for the ensemble-mean increase in large-scale clustering with warming that we document. 
+We hypothesize that the ensemble-mean increase in $A_m$ is instead associated with a meridional shift in convection, 
+potentially related to a narrowing of the ITCZ \citep{Byrne2016}. 
+All but one model exhibit negative changes in $C_m$ with warming, and this is associated with an increase in the large-scale clustering of precipitation in natural variability.
+
+\clearpage
+\begin{figure}
+    \centering
+    \includegraphics{sections/result_2/mechanisms3.pdf}
+    \caption{Same as Figure 4a, 
+    but with the change in the climatological Pacific SST gradient, $T_z$, per Kelvin tropical warming from the historical to the SSP585 scenario simulation period across the CMIP6 ensemble as explanatory variable. 
+    Models are as given in the legend in Figure 4.}
+\label{mechanisms_warmingSCATTER}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{sections/result_2/mechanisms4.pdf}
+    \caption{Change in surface temperature, Ts, 
+    regressed onto change in mean area of heavy precipitation features, $A_m$, per Kelvin tropical warming from the historical to the SSP585 scenario simulation period across the CMIP6 ensemble. 
+    Contour shows ensemble-mean 90th percentile climatological Ts and crosses indicate if correlations are statistically significant.}
+\label{mechanisms_warmingMAP}
+\end{figure}
+\clearpage
+
+
+

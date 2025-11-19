@@ -1,0 +1,63 @@
+% == settings ==
+% -- packages --
+\documentclass[draft]{packages/agujournal2019}                                              % format
+\usepackage{url}                                                                            % this package should fix any errors with URLs in refs.
+\usepackage{lineno}                                                                         % line numbers
+\usepackage[inline]{trackchanges}                                                           % annotated changes (can toggle off with [finalnew] instead of [inline])
+\usepackage{natbib}                                                                         % reference format
+\usepackage{gensymb}                                                                        % synbols
+\usepackage{soul}                                                                           % highlighting/underlining tools
+\linenumbers                                                                                % start numbering pages
+
+% -- global variables --
+\input{sections/references/admin_details/contact_details}                                   % authors, affiliations, etc
+\input{sections/references/admin_details/paper_settings.tex}                                % Journal, etc
+\addeditor{PB}
+
+% -- AGU format command --
+\draftfalse                                                                                 
+\journalname{\JournalSubmit}                                                                
+
+% == main text ==
+\begin{document}
+\title{\input{sections/introduction/title}}
+\authors{\firstAuthor\affil{1, 2}, \coAuthor\affil{1, 2}}
+\affiliation{1}{\myaffilOne}
+\affiliation{2}{\myaffilTwo}
+\correspondingauthor{\corrAuthor}{\corrEmail}
+\input{sections/introduction/abstract.tex}
+\input{sections/introduction/abstract_pl.tex}
+% \clearpage
+% \input{sections/introduction/introduction.tex}
+% \clearpage
+% \input{sections/method/method.tex}
+% \clearpage
+% \input{sections/result_1/results_1.tex}
+% \clearpage
+% \input{sections/result_2/result_2.tex}
+% \clearpage
+% \input{sections/result_3/result_3.tex}
+% \clearpage
+% \input{sections/summary/summary.tex}
+% \clearpage
+% \input{sections/references/data_source.tex}
+% \clearpage
+% \input{sections/references/acknowledgements.tex}
+% \clearpage
+\bibliography{sections/references/references.bib} % don't specify the file extension
+\end{document}
+
+
+% == Track changes commands ==
+%  \note[editor]{The note}
+%  \annote[editor]{Text to annotate}{The note}
+%  \add[editor]{Text to add}
+%  \remove[editor]{Text to remove}
+%  \change[editor]{Text to remove}{Text to add}
+% complete documentation is here: http://trackchanges.sourceforge.net/
+
+
+
+
+
+
