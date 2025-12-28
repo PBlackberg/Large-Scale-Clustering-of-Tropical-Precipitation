@@ -1,23 +1,45 @@
 \documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+
 \begin{document}
 \section*{Response to Reviewers}
-\subsection*{Reviewer 1}
 Thank you for the insightful comments.
 Here is a list of revisions that have been implemented in response.
 
+\clearpage
+\subsection*{Reviewer 1}
 \subsubsection*{General comments}
-\textbf{1a. True aggregation effects: dimensions and combined measures}
+\textbf{1a. Clarification of degree of clustering} \\
+\noindent\emph{Comment:} \\
+"Make the interpretation of Am, Af, and Am$|$Af more clear" \\
+"For example, schematic of how Am, Af, Am$|$Af (and N) relate to eachother?" \\
+
+\noindent\emph{Response:} \\
 As the reviewer points out, there is some ambiguity in what high values of Am implies about the spatial distribution of heavy rainfall in interannual variability.
-In interannual variability, Am is a combination of the area covered by heavy rainfall and increased proximity of rainy points sufficient to connect contiguous precipitation features:
+In interannual variability, Am is a combination of the area covered by heavy rainfall and increased proximity of rainy points sufficient to connect precipitation features:
 \[ Am = Am_{coverage} + Am_{proximity} \]
 These two "dimensions" of clustering are evaluated in the paper using \\
 $ Am_{coverage} \propto Af $ \\
 $ Am_{proximity} \propto Am|Af $ \\
 \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.35\linewidth]{am_af_schematic.pdf}
+    \caption{\\
+    Schematic of Am, Af, Am$|$Af. \\ 
+    Coverage $\propto$ Af, \\
+    Proximity $\propto$ Am$|$Af. \\
+    Am alone includes transition from bottom left to top right. \\
+    N alone includes transition from bottom right to top left.}
+\label{Am_af_schematic}
+\end{figure}
+
 The reason for decomposing clustering into these two "dimensions" is that they are largely driven by different mechanisms.
 Af is to first order described by the tropical mean rainfall rate and can be viewed as a temporal clustering of heavy rainfall, locally increasing the size of- without spatial clustering precipitation features, indicated by strong linear relationship between Am and Af (Figure 3a):\\
 \[ Am_{coverage} = \alpha Af \]
-$ Am_{coverage} = (\frac{1}{N^*})Af $ \\
+\[ Am_{coverage} = (\frac{1}{N^*})Af \] \\
 Where \\
 Af - Area covered by heavy precipitation \\
 N* - Characteristic number of precipitation features (constant) \\ 
@@ -25,41 +47,200 @@ N* - Characteristic number of precipitation features (constant) \\
 The deviation from this local growing tendency, that is, the tendency in Am that cannot be explained by a linear response from changes in Af, represents the increase in proximity of heavily raining points, which we refer to as spatial clustering:\\
 \[ Am_{proximity} = Am - \alpha Af \]
 
-There are varying interpretations of clustering, some dominated by one dimension and some a combination of dimensions with different signs.
+There are varying interpretations of clustering in the existing literature on organized convection, some dominated by one dimension and some a combination of dimensions with different signs.
 Here we explore one of these combined measures (Am) and its two orthogonal components (Af, Am$|$Af).
 Am and N are both examples of a combined measure and they are directly dependent on each other as reciprocals:
 \[ Am = (\frac{Af}{N}) \]
 \[ Am = \propto (\frac{1}{N}) \]
-Therefore, we only focus on one of these measures, and choose Am as it was the centre of the preceding study on large-scale clustering with warming.\\
+Therefore, we only focus on one of these measures, and choose Am as it was the centre of our preceding study on large-scale clustering with warming.\\
 
-\emph{Edits:}
+\clearpage
+\noindent\emph{Edits:}
 \begin{enumerate}
 \item Added a schematic illustrating these two dimensions of clustering in Figure 3
 \item Added explanation in lines; 
 \item Further, we have condensed the clustering measures included in the Supporting information Figure S1, S2, to the ones central to the paper.
 \end{enumerate}
+\vspace{0.5cm}
 
+\textbf{1b. Justification / sensitivity testing of precipitation threshold}
+\noindent\emph{Comment:} \\
+"What type of rainfall is targeted by the present analysis, and are the results sensitive to the choice of threshold?" \\
 
-\clearpage
-\textbf{1b. Justification and sensitivity testing of precipitation threshold}
+\noindent\emph{Response:} \\
 The 5\% precipitation threshold is somewhat arbitrarily picked. The purpose of the threshold is to isolate rainfall associated with considerable convection, to relate to previous work on organization of convection and its associated environmental signature.
-Early in this work we have explored 3\%, 5\% and 10\% thresholds, and during this revision all figures from the paper have been reproduced with these thresholds. The overall conclusions from the paper are not sensitivie to the threshold, including; 
+Early in this work we have explored 3\%, 5\% and 10\% thresholds, and during this revision all figures from the paper have been reproduced with these thresholds. The overall conclusions from the paper are not sensitivie to the threshold, including;
 uniform increase in Am with warming, 
-increased proximity to the equator and hydrological equator, 
+generally increased proximity of heavy precipitation to the equator and hydrological equator with warming, 
 El Nino conditions associated with increased clusterng in interannual variability and with warming, 
 and discrepencies between modelled and observed relative humidity and cloud signatures associated with clustering in interannual variability.  
-Differences include, when using the top 10\%, the drying associated with Af in interannual variability is weaker and not statistically significant, instead Am|Af dries the tropics when using this threshold.
+Differences include, when using the top 10\%, the drying associated with Af in interannual variability is weaker and not statistically significant, instead Am$|$Af is associated with a drier tropics when using this threshold.
 Further, the Cz relationship with Am is absent when using the top 10\%. When using the top 3\% the proximity to the hydrological equator (Cheq) and Cz explain close to 20 of the variance each in Am with warming, and Cheq is anticorrelated with changes in Am. This was suspected, due to
-Cz and Cheq being somewhat anticorrelated.  
+Cz and Cheq being somewhat anticorrelated when using the top 5\% threshold. \\
+
+\noindent\emph{Edits:} \\
+
+
+
 
 \vspace{1cm}
-\textbf{2. Title edit}
-The title has been changed to better reflect the study scope.
-\emph{Edits:}
-line: 
+\textbf{2. Title edit} \\
+\noindent\emph{Comment:} "More specific" \\
+\noindent\emph{Response:} The title has been changed to better reflect the study scope. \\
+\noindent\emph{Edits:} line
+
+
 
 
 \subsubsection*{Specific comments}
+\textbf{1. Abstract} \\
+\noindent\emph{Comment:} "More objective"  \\
+Motivation \\
+Main method \\
+Key findings \\
+Implications \\
+
+\noindent\emph{Response:} \\
+
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{2. Introduction} \\
+\noindent\emph{Comment:} "Clarify research gaps, questions, and novelty" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+
+\textbf{3a. Data and Methods: Precipitation threshold limitations} \\
+\noindent\emph{Comment:} \\ 
+"Discuss physical interpretation and limitations of a climatologically fixed area fraction of heavy rainfall (seasonality-, regional-, and model differences)"\\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{3b. Data and Methods: Uncertainty and robustness analysis} \\
+\noindent\emph{Comment:} \\
+"How robust are results to detrending method and ENSO measure?" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+
+\textbf{3c. Data and Methods: Schematic of clustering measures} \\
+\noindent\emph{Comment:} "schematic of Am, Af, Cm, Cz, and Cheq" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{3d. Data and Methods: IFS limitations} \\
+\noindent\emph{Comment:} "Discuss why IFS is not used for climate change signal" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{4. Spatial patterns and variability: What controls Af?} \\
+\noindent\emph{Comment:} "Physical rationale for changes in Af" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{5a. SST controls: Improve differentiation between internal variability and forced response} \\
+\noindent\emph{Comment:} Distinguish between ENSO driver and warming induced responses \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{5b. SST controls: Direction of causality} \\
+\noindent\emph{Comment:} "Does cloud radiative effect due to clustering of heavy precipitation feedback onto ENSO conditions?" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{5c. SST controls: Clarification of surface tempearture measures} \\
+\noindent\emph{Comment:} "Changes in temperature over tropical belt, oceans, or Pacific?" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{5d. SST controls: Include statistical significance} \\
+\noindent\emph{Comment:} "Include $R^2$ values" \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{6a. Cloud and Humidity effects: Clarify missing connection between tropical-mean clustering and radiative feebacks in the ensemble} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{6b. Cloud and Humidity effects: Why is there a difference between observed and modelled Af connections?} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+\textbf{6c. Cloud and Humidity effects: Robustness test on drying from increased proximity to the equator and hydrological equator} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+
+
+\textbf{7a. Summary and Discussion: Evaluation of uncertainties} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+
+\textbf{7b. Summary and Discussion: Tempered comment about ECS} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
+
+
+
+
+\textbf{7c. Summary and Discussion: Schematic illustrating mechanisms} \\
+\noindent\emph{Comment:} \\
+
+\noindent\emph{Response:} \\
+
+\noindent\emph{Edits:} \\
 
 
 
@@ -82,7 +263,12 @@ line:
 
 
 
-% Comments:
+
+
+
+
+
+% == Other comments ==
 % A commmon cause for disagreement between different measures is the interpretation of reducing Af as clustering. 
 % In our view that interpretation only makes sense when the same amount of rainfall is concentrated into a small region, not when comparing vastly differnt amount of rainfall.
 

@@ -1,0 +1,1273 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Alexander%
+\ \protect \BOthers {.}}{%
+Alexander%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+Michael2002}
+\APACinsertmetastar {%
+Michael2002}%
+\begin{APACrefauthors}%
+Alexander, M\BPBI A.%
+, Bladé, I.%
+, Newman, M.%
+, Lanzante, J\BPBI R.%
+, Lau, N\BHBI C.%
+\BCBL {}\ \BBA {} Scott, J\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Atmospheric Bridge: The Influence of ENSO Teleconnections on Air–Sea Interaction over the Global Oceans} {The atmospheric bridge: The influence of enso teleconnections on air–sea interaction over the global oceans}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Climate}{15}{16}{2205 - 2231}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/clim/15/16/1520-0442_2002_015_2205_tabtio_2.0.co_2.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0442(2002)015<2205:TABTIO>2.0.CO;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Arnold%
+\ \BBA {} Randall%
+}{%
+Arnold%
+\ \BBA {} Randall%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Arnold2015}
+\APACinsertmetastar {%
+Arnold2015}%
+\begin{APACrefauthors}%
+Arnold, N\BPBI P.%
+\BCBT {}\ \BBA {} Randall, D\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Global-scale convective aggregation: Implications for the Madden-Julian Oscillation} {Global-scale convective aggregation: Implications for the madden-julian oscillation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Advances in Modeling Earth Systems}{7}{4}{1499-1518}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/2015MS000498} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1002/2015MS000498} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bao%
+, Sherwood%
+, Colin%
+\BCBL {}\ \BBA {} Dixit%
+}{%
+Bao%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Bao2017}
+\APACinsertmetastar {%
+Bao2017}%
+\begin{APACrefauthors}%
+Bao, J.%
+, Sherwood, S\BPBI C.%
+, Colin, M.%
+\BCBL {}\ \BBA {} Dixit, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{10}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Robust Relationship Between Extreme Precipitation and Convective Organization in Idealized Numerical Modeling Simulations} {The robust relationship between extreme precipitation and convective organization in idealized numerical modeling simulations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Advances in Modeling Earth Systems}{9}{}{2291-2303}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001125} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2017MS001125} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Blackberg%
+}{%
+Blackberg%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+Blackberg2025software}
+\APACinsertmetastar {%
+Blackberg2025software}%
+\begin{APACrefauthors}%
+Blackberg, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {Large-Scale Clustering of Tropical Precipitation: Code Repository.} {Large-scale clustering of tropical precipitation: Code repository.}
+\newblock
+\APACaddressPublisher{}{Zenodo}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.5281/zenodo.17070290} \end{APACrefURL}
+\newblock
+\APACrefnote{[Software]}
+\newblock
+\begin{APACrefDOI} \doi{10.5281/zenodo.17070290} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Blackberg%
+}{%
+Blackberg%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+Blackberg2025dataset}
+\APACinsertmetastar {%
+Blackberg2025dataset}%
+\begin{APACrefauthors}%
+Blackberg, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {Metrics for Large-Scale Clustering of Tropical Precipitation.} {Metrics for large-scale clustering of tropical precipitation.}
+\newblock
+\APACaddressPublisher{}{Zenodo}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.5281/zenodo.16946243} \end{APACrefURL}
+\newblock
+\APACrefnote{[Dataset]}
+\newblock
+\begin{APACrefDOI} \doi{10.5281/zenodo.16946243} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bläckberg%
+\ \BBA {} Singh%
+}{%
+Bläckberg%
+\ \BBA {} Singh%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+Blackberg_Singh2022}
+\APACinsertmetastar {%
+Blackberg_Singh2022}%
+\begin{APACrefauthors}%
+Bläckberg, C\BPBI P.%
+\BCBT {}\ \BBA {} Singh, M\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{5}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Increased Large-Scale Convective Aggregation in CMIP5 Projections: Implications for Tropical Precipitation Extremes} {Increased large-scale convective aggregation in cmip5 projections: Implications for tropical precipitation extremes}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{49}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021GL097295} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2021GL097295} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bony%
+\ \protect \BOthers {.}}{%
+Bony%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+Bony2020}
+\APACinsertmetastar {%
+Bony2020}%
+\begin{APACrefauthors}%
+Bony, S.%
+, Semie, A.%
+, Kramer, R\BPBI J.%
+, Soden, B.%
+, Tompkins, A\BPBI M.%
+\BCBL {}\ \BBA {} Emanuel, K\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Observed Modulation of the Tropical Radiation Budget by Deep Convective Organization and Lower-Tropospheric Stability} {Observed modulation of the tropical radiation budget by deep convective organization and lower-tropospheric stability}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{AGU Advances}{1}{3}{e2019AV000155}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019AV000155} \end{APACrefURL}
+\newblock
+\APACrefnote{e2019AV000155 10.1029/2019AV000155}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1029/2019AV000155} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bretherton%
+, Blossey%
+\BCBL {}\ \BBA {} Khairoutdinov%
+}{%
+Bretherton%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2005}}%
+}]{%
+Bretherton2005}
+\APACinsertmetastar {%
+Bretherton2005}%
+\begin{APACrefauthors}%
+Bretherton, C\BPBI S.%
+, Blossey, P\BPBI N.%
+\BCBL {}\ \BBA {} Khairoutdinov, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{{\APACmonth{12}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An Energy-Balance Analysis of Deep Convective Self-Aggregation above Uniform SST} {An energy-balance analysis of deep convective self-aggregation above uniform sst}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the Atmospheric Sciences}{62}{12}{4273–4292}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1175/JAS3614.1} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/jas3614.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Byrne%
+\ \BBA {} Schneider%
+}{%
+Byrne%
+\ \BBA {} Schneider%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Byrne2016}
+\APACinsertmetastar {%
+Byrne2016}%
+\begin{APACrefauthors}%
+Byrne, M\BPBI P.%
+\BCBT {}\ \BBA {} Schneider, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Energetic Constraints on the Width of the Intertropical Convergence Zone} {Energetic constraints on the width of the intertropical convergence zone}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Climate}{29}{13}{4709 - 4721}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/clim/29/13/jcli-d-15-0767.1.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JCLI-D-15-0767.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Emanuel%
+, Wing%
+\BCBL {}\ \BBA {} Vincent%
+}{%
+Emanuel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Emanuel2014}
+\APACinsertmetastar {%
+Emanuel2014}%
+\begin{APACrefauthors}%
+Emanuel, K.%
+, Wing, A\BPBI A.%
+\BCBL {}\ \BBA {} Vincent, E\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{2}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Radiative‐convective instability} {Radiative‐convective instability}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Advances in Modeling Earth Systems}{6}{1}{75–90}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1002/2013MS000270} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2013ms000270} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Eyring%
+\ \protect \BOthers {.}}{%
+Eyring%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Eyring2016}
+\APACinsertmetastar {%
+Eyring2016}%
+\begin{APACrefauthors}%
+Eyring, V.%
+, Bony, S.%
+, Meehl, G\BPBI A.%
+, Senior, C\BPBI A.%
+, Stevens, B.%
+, Stouffer, R\BPBI J.%
+\BCBL {}\ \BBA {} Taylor, K\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization} {Overview of the coupled model intercomparison project phase 6 (cmip6) experimental design and organization}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geoscientific Model Development}{9}{5}{1937--1958}.
+\newblock
+\begin{APACrefURL} \url{https://gmd.copernicus.org/articles/9/1937/2016/} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.5194/gmd-9-1937-2016} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hartmann%
+, Hendon%
+\BCBL {}\ \BBA {} Houze%
+}{%
+Hartmann%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1984}}%
+}]{%
+Hartmann1984}
+\APACinsertmetastar {%
+Hartmann1984}%
+\begin{APACrefauthors}%
+Hartmann, D\BPBI L.%
+, Hendon, H\BPBI H.%
+\BCBL {}\ \BBA {} Houze, R\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1984}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Some Implications of the Mesoscale Circulations in Tropical Cloud Clusters for Large-Scale Dynamics and Climate} {Some implications of the mesoscale circulations in tropical cloud clusters for large-scale dynamics and climate}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Atmospheric Sciences}{41}{}{113 - 121}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/atsc/41/1/1520-0469_1984_041_0113_siotmc_2_0_co_2.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0469(1984)041<0113:SIOTMC>2.0.CO;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hausfather%
+, Marvel%
+, Schmidt%
+, Nielsen-Gammon%
+\BCBL {}\ \BBA {} Zelinka%
+}{%
+Hausfather%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+hausfather2022}
+\APACinsertmetastar {%
+hausfather2022}%
+\begin{APACrefauthors}%
+Hausfather, Z.%
+, Marvel, K.%
+, Schmidt, G\BPBI A.%
+, Nielsen-Gammon, J\BPBI W.%
+\BCBL {}\ \BBA {} Zelinka, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Climate simulations: Recognize the ‘hot model’ problem} {Climate simulations: Recognize the ‘hot model’ problem}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{605}{}{26--29}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/d41586-022-01192-2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hersbach%
+\ \protect \BOthers {.}}{%
+Hersbach%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+ERA52023}
+\APACinsertmetastar {%
+ERA52023}%
+\begin{APACrefauthors}%
+Hersbach, H.%
+, Bell, B.%
+, Berrisford, P.%
+, Horányi, A.%
+, Muñoz-Sabater, J.%
+, Nicolas, J.%
+\BDBL {}Thépaut, J\BHBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+\APACrefbtitle {ERA5 hourly data on pressure levels from 1940 to present.} {Era5 hourly data on pressure levels from 1940 to present.}
+\newblock
+\APACaddressPublisher{}{Copernicus Climate Change Service (C3S) Climate Data Store}.
+\newblock
+\begin{APACrefURL} \url{https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels} \end{APACrefURL}
+\newblock
+\APACrefnote{Accessed: 2025-05-07}
+\newblock
+\begin{APACrefDOI} \doi{10.24381/cds.bd0915c6} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Holloway%
+\ \protect \BOthers {.}}{%
+Holloway%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Holloway2017}
+\APACinsertmetastar {%
+Holloway2017}%
+\begin{APACrefauthors}%
+Holloway, C\BPBI E.%
+, Wing, A\BPBI A.%
+, Bony, S.%
+, Muller, C.%
+, Masunaga, H.%
+, L’Ecuyer, T\BPBI S.%
+\BDBL {}Zuidema, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Observing Convective Aggregation} {Observing convective aggregation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Surveys in Geophysics}{38}{6}{1199--1236}.
+\newblock
+\begin{APACrefURL} \url{https://link.springer.com/article/10.1007/s10712-017-9419-1} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10712-017-9419-1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Huang%
+, Yin%
+, Menne%
+, Vose%
+\BCBL {}\ \BBA {} Zhang%
+}{%
+Huang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+noaa_tas2024}
+\APACinsertmetastar {%
+noaa_tas2024}%
+\begin{APACrefauthors}%
+Huang, B.%
+, Yin, X.%
+, Menne, M\BPBI J.%
+, Vose, R\BPBI S.%
+\BCBL {}\ \BBA {} Zhang, H\BHBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {NOAA Global Surface Temperature Dataset (NOAAGlobalTemp), Version 6.0.} {Noaa global surface temperature dataset (noaaglobaltemp), version 6.0.}
+\newblock
+\APACaddressPublisher{}{NOAA National Centers for Environmental Information}.
+\newblock
+\begin{APACrefURL} \url{https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc%3AC01704} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.25921/rzxg-p717} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Huffman%
+\ \protect \BOthers {.}}{%
+Huffman%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+gpcp2023}
+\APACinsertmetastar {%
+gpcp2023}%
+\begin{APACrefauthors}%
+Huffman, G\BPBI J.%
+, Adler, R\BPBI F.%
+, Behrangi, A.%
+, Bolvin, D\BPBI T.%
+, Nelkin, E\BPBI J.%
+, Gu, G.%
+\BCBL {}\ \BBA {} Ehsani, M\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+\APACrefbtitle {The New Version 3.2 Global Precipitation Climatology Project (GPCP) Monthly and Daily Precipitation Products} {The new version 3.2 global precipitation climatology project (gpcp) monthly and daily precipitation products}\ (\BVOL~36)\ (\BNUM~21).
+\newblock
+\APACaddressPublisher{}{American Meteorological Society}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1175/JCLI-D-23-0123.1} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JCLI-D-23-0123.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jones%
+}{%
+Jones%
+}{%
+{\protect \APACyear {1999}}%
+}]{%
+Jones1999}
+\APACinsertmetastar {%
+Jones1999}%
+\begin{APACrefauthors}%
+Jones, P\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1999}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {First- and Second-Order Conservative Remapping Schemes for Grids in Spherical Coordinates} {First- and second-order conservative remapping schemes for grids in spherical coordinates}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Monthly Weather Review}{127}{9}{2204 - 2210}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/mwre/127/9/1520-0493_1999_127_2204_fasocr_2.0.co_2.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0493(1999)127<2204:FASOCR>2.0.CO;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Koldunov%
+\ \protect \BOthers {.}}{%
+Koldunov%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+IFS_ref}
+\APACinsertmetastar {%
+IFS_ref}%
+\begin{APACrefauthors}%
+Koldunov, N.%
+, Kölling, T.%
+, Pedruzo-Bagazgoitia, X.%
+, Rackow, T.%
+, Redler, R.%
+, Sidorenko, D.%
+\BDBL {}Ziemen, F\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+\APACrefbtitle {nextGEMS: output of the model development cycle 3 simulations for ICON and IFS.} {nextgems: output of the model development cycle 3 simulations for icon and ifs.}
+\newblock
+\APACaddressPublisher{}{World Data Center for Climate (WDCC) at DKRZ}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.26050/WDCC/nextGEMS_cyc3} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.26050/WDCC/nextGEMS_cyc3} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maddox%
+}{%
+Maddox%
+}{%
+{\protect \APACyear {1980}}%
+}]{%
+Maddox1980}
+\APACinsertmetastar {%
+Maddox1980}%
+\begin{APACrefauthors}%
+Maddox, R\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1980}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Meoscale Convective Complexes} {Meoscale convective complexes}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Bulletin of the American Meteorological Society}{61}{11}{1374–1387}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1175/1520-0477(1980)061<1374:MCC>2.0.CO;2} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0477(1980)061<1374:mcc>2.0.co;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mapes%
+}{%
+Mapes%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+Mapes1993}
+\APACinsertmetastar {%
+Mapes1993}%
+\begin{APACrefauthors}%
+Mapes, B\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{{\APACmonth{07}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Gregarious Tropical Convection} {Gregarious tropical convection}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the Atmospheric Sciences}{50}{13}{2026–2037}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1175/1520-0469(1993)050<2026:GTC>2.0.CO;2} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0469(1993)050<2026:gtc>2.0.co;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mapes%
+\ \BBA {} Houze%
+}{%
+Mapes%
+\ \BBA {} Houze%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+Mapes1993_cloud}
+\APACinsertmetastar {%
+Mapes1993_cloud}%
+\begin{APACrefauthors}%
+Mapes, B\BPBI E.%
+\BCBT {}\ \BBA {} Houze, R\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Cloud Clusters and Superclusters over the Oceanic Warm Pool} {Cloud clusters and superclusters over the oceanic warm pool}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Monthly Weather Review}{121}{5}{1398–1416}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1175/1520-0493(1993)121<1398:CCASOT>2.0.CO;2} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0493(1993)121<1398:ccasot>2.0.co;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mardia%
+, Kent%
+\BCBL {}\ \BBA {} Bibby%
+}{%
+Mardia%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1979}}%
+}]{%
+mardia1979multivariate}
+\APACinsertmetastar {%
+mardia1979multivariate}%
+\begin{APACrefauthors}%
+Mardia, K\BPBI V.%
+, Kent, J\BPBI T.%
+\BCBL {}\ \BBA {} Bibby, J\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1979}.
+\newblock
+\APACrefbtitle {Multivariate Analysis} {Multivariate analysis}.
+\newblock
+\APACaddressPublisher{London}{Academic Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{NOAA Physical Sciences Laboratory, Climate Prediction Center}%
+}{%
+{NOAA Physical Sciences Laboratory, Climate Prediction Center}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+CERES_ref}
+\APACinsertmetastar {%
+CERES_ref}%
+\begin{APACrefauthors}%
+{NOAA Physical Sciences Laboratory, Climate Prediction Center}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {CPC Daily Blended Outgoing Longwave Radiation (OLR) – 1°\,×\,1°.} {Cpc daily blended outgoing longwave radiation (olr) – 1°\,×\,1°.}
+\newblock
+\APAChowpublished {\url{https://psl.noaa.gov/data/gridded/data.cpc_blended_olr-1deg.html}}.
+\newblock
+\APACrefnote{Daily OLR data (1991–present); please acknowledge NOAA PSL when using}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pendergrass%
+, Reed%
+\BCBL {}\ \BBA {} Medeiros%
+}{%
+Pendergrass%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Pendergrass2016}
+\APACinsertmetastar {%
+Pendergrass2016}%
+\begin{APACrefauthors}%
+Pendergrass, A\BPBI G.%
+, Reed, K\BPBI A.%
+\BCBL {}\ \BBA {} Medeiros, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The link between extreme precipitation and convective organization in a warming climate: Global radiative-convective equilibrium simulations} {The link between extreme precipitation and convective organization in a warming climate: Global radiative-convective equilibrium simulations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{43}{21}{11,445-11,452}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/2016GL071285} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1002/2016GL071285} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Popp%
+\ \BBA {} Bony%
+}{%
+Popp%
+\ \BBA {} Bony%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+Popp2019}
+\APACinsertmetastar {%
+Popp2019}%
+\begin{APACrefauthors}%
+Popp, M.%
+\BCBT {}\ \BBA {} Bony, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Stronger zonal convective clustering associated with a wider tropical rain belt} {Stronger zonal convective clustering associated with a wider tropical rain belt}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Communications}{10}{}{4261}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41467-019-12167-9} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Quan%
+, Zhang%
+, Wang%
+\BCBL {}\ \BBA {} Fueglistaler%
+}{%
+Quan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Quan2025}
+\APACinsertmetastar {%
+Quan2025}%
+\begin{APACrefauthors}%
+Quan, H.%
+, Zhang, B.%
+, Wang, C.%
+\BCBL {}\ \BBA {} Fueglistaler, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Sea Surface Temperature Pattern Effect on Outgoing Longwave Radiation: The Role of Large-Scale Convective Aggregation} {The sea surface temperature pattern effect on outgoing longwave radiation: The role of large-scale convective aggregation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{52}{11}{e2024GL112756}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2024GL112756} \end{APACrefURL}
+\newblock
+\APACrefnote{e2024GL112756 2024GL112756}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1029/2024GL112756} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Retsch%
+, Jakob%
+\BCBL {}\ \BBA {} Singh%
+}{%
+Retsch%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+Retsch2020}
+\APACinsertmetastar {%
+Retsch2020}%
+\begin{APACrefauthors}%
+Retsch, M\BPBI H.%
+, Jakob, C.%
+\BCBL {}\ \BBA {} Singh, M\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{4}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Assessing Convective Organization in Tropical Radar Observations} {Assessing convective organization in tropical radar observations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Geophysical Research: Atmospheres}{125}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2019JD031801} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Schiro%
+\ \protect \BOthers {.}}{%
+Schiro%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+Schiro2022}
+\APACinsertmetastar {%
+Schiro2022}%
+\begin{APACrefauthors}%
+Schiro, K.%
+, Su, H.%
+, Ahmed, F.%
+, Dai, N.%
+, Singer, C.%
+, Gentine, P.%
+\BDBL {}Neelin, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{11}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Model spread in tropical low cloud feedback tied to overturning circulation response to warming} {Model spread in tropical low cloud feedback tied to overturning circulation response to warming}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Communications}{13}{}{7119}.
+\newblock
+\begin{APACrefURL} \url{https://www.nature.com/articles/s41467-022-34787-4} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41467-022-34787-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Semie%
+\ \BBA {} Bony%
+}{%
+Semie%
+\ \BBA {} Bony%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+Semie2020}
+\APACinsertmetastar {%
+Semie2020}%
+\begin{APACrefauthors}%
+Semie, A\BPBI G.%
+\BCBT {}\ \BBA {} Bony, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Relationship Between Precipitation Extremes and Convective Organization Inferred From Satellite Observations} {Relationship between precipitation extremes and convective organization inferred from satellite observations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{47}{9}{e2019GL086927}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019GL086927} \end{APACrefURL}
+\newblock
+\APACrefnote{e2019GL086927 10.1029/2019GL086927}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1029/2019GL086927} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sobel%
+, Held%
+\BCBL {}\ \BBA {} Bretherton%
+}{%
+Sobel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+ONI_ref}
+\APACinsertmetastar {%
+ONI_ref}%
+\begin{APACrefauthors}%
+Sobel, A\BPBI H.%
+, Held, I\BPBI M.%
+\BCBL {}\ \BBA {} Bretherton, C\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The ENSO Signal in Tropical Tropospheric Temperature} {The enso signal in tropical tropospheric temperature}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Climate}{15}{18}{2702 - 2706}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/clim/15/18/1520-0442_2002_015_2702_tesitt_2.0.co_2.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0442(2002)015<2702:TESITT>2.0.CO;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tobin%
+\ \protect \BOthers {.}}{%
+Tobin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+Tobin2013}
+\APACinsertmetastar {%
+Tobin2013}%
+\begin{APACrefauthors}%
+Tobin, I.%
+, Bony, S.%
+, Holloway, C\BPBI E.%
+, Grandpeix, J\BHBI Y.%
+, Sèze, G.%
+, Coppin, D.%
+\BDBL {}Roca, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Does convective aggregation need to be represented in cumulus parameterizations?} {Does convective aggregation need to be represented in cumulus parameterizations?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Advances in Modeling Earth Systems}{5}{4}{692-703}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/jame.20047} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1002/jame.20047} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tselioudis%
+, Tromeur%
+, Rossow%
+\BCBL {}\ \BBA {} Zerefos%
+}{%
+Tselioudis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Tselioudis2010}
+\APACinsertmetastar {%
+Tselioudis2010}%
+\begin{APACrefauthors}%
+Tselioudis, G.%
+, Tromeur, E.%
+, Rossow, W\BPBI B.%
+\BCBL {}\ \BBA {} Zerefos, C\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{7}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Decadal changes in tropical convection suggest effects on stratospheric water vapor} {Decadal changes in tropical convection suggest effects on stratospheric water vapor}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{37}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2010GL044092} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Watanabe%
+\ \protect \BOthers {.}}{%
+Watanabe%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+Watanabe2024}
+\APACinsertmetastar {%
+Watanabe2024}%
+\begin{APACrefauthors}%
+Watanabe, M.%
+, Kang, S\BPBI M.%
+, Collins, M.%
+, Hwang, Y\BHBI T.%
+, McGregor, S.%
+\BCBL {}\ \BBA {} Stuecker, M\BPBI F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Possible shift in controls of the tropical Pacific surface warming pattern} {Possible shift in controls of the tropical pacific surface warming pattern}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{630}{8016}{315--324}.
+\newblock
+\begin{APACrefURL} \url{https://www.nature.com/articles/s41586-024-07452-7} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41586-024-07452-7} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wheeler%
+\ \BBA {} Kiladis%
+}{%
+Wheeler%
+\ \BBA {} Kiladis%
+}{%
+{\protect \APACyear {1999}}%
+}]{%
+Wheeler1999}
+\APACinsertmetastar {%
+Wheeler1999}%
+\begin{APACrefauthors}%
+Wheeler, M.%
+\BCBT {}\ \BBA {} Kiladis, G\BPBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1999}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Convectively Coupled Equatorial Waves: Analysis of Clouds and Temperature in the Wavenumber–Frequency Domain} {Convectively coupled equatorial waves: Analysis of clouds and temperature in the wavenumber–frequency domain}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the Atmospheric Sciences}{56}{}{374-399}.
+\newblock
+\begin{APACrefURL} \url{https://journals.ametsoc.org/view/journals/atsc/56/3/1520-0469_1999_056_0374_ccewao_2.0.co_2.xml} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0469(1999)056<0374:CCEWAO>2.0.CO;2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Williams%
+, Jeevanjee%
+\BCBL {}\ \BBA {} Bloch-Johnson%
+}{%
+Williams%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+Williams2023}
+\APACinsertmetastar {%
+Williams2023}%
+\begin{APACrefauthors}%
+Williams, A\BPBI I\BPBI L.%
+, Jeevanjee, N.%
+\BCBL {}\ \BBA {} Bloch-Johnson, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Circus Tents, Convective Thresholds, and the Non-Linear Climate Response to Tropical SSTs} {Circus tents, convective thresholds, and the non-linear climate response to tropical ssts}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{50}{6}{e2022GL101499}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2022GL101499} \end{APACrefURL}
+\newblock
+\APACrefnote{e2022GL101499 2022GL101499}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1029/2022GL101499} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wills%
+, Dong%
+, Proistosecu%
+, Armour%
+\BCBL {}\ \BBA {} Battisti%
+}{%
+Wills%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+Wills2022}
+\APACinsertmetastar {%
+Wills2022}%
+\begin{APACrefauthors}%
+Wills, R\BPBI C\BPBI J.%
+, Dong, Y.%
+, Proistosecu, C.%
+, Armour, K\BPBI C.%
+\BCBL {}\ \BBA {} Battisti, D\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{{\APACmonth{09}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Systematic Climate Model Biases in the Large‐Scale Patterns of Recent Sea‐Surface Temperature and Sea‐Level Pressure Change} {Systematic climate model biases in the large‐scale patterns of recent sea‐surface temperature and sea‐level pressure change}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{49}{17}{}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1029/2022GL100011} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2022gl100011} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wing%
+, Emanuel%
+, Holloway%
+\BCBL {}\ \BBA {} Muller%
+}{%
+Wing%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Wing2018}
+\APACinsertmetastar {%
+Wing2018}%
+\begin{APACrefauthors}%
+Wing, A\BPBI A.%
+, Emanuel, K.%
+, Holloway, C\BPBI E.%
+\BCBL {}\ \BBA {} Muller, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Convective Self-Aggregation in Numerical Simulations: A Review} {Convective self-aggregation in numerical simulations: A review}.{\BBCQ}
+\newblock
+\BIn{} R.~Pincus, D.~Winker, S.~Bony\BCBL {}\ \BBA {} B.~Stevens\ (\BEDS), \APACrefbtitle {Shallow Clouds, Water Vapor, Circulation, and Climate Sensitivity} {Shallow clouds, water vapor, circulation, and climate sensitivity}\ (\BPGS\ 1--25).
+\newblock
+\APACaddressPublisher{Cham}{Springer International Publishing}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/978-3-319-77273-8_1} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/978-3-319-77273-8_1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wing%
+\ \BBA {} Emanuel%
+}{%
+Wing%
+\ \BBA {} Emanuel%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+wing2014}
+\APACinsertmetastar {%
+wing2014}%
+\begin{APACrefauthors}%
+Wing, A\BPBI A.%
+\BCBT {}\ \BBA {} Emanuel, K\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Physical mechanisms controlling self-aggregation of convection in idealized numerical modeling simulations} {Physical mechanisms controlling self-aggregation of convection in idealized numerical modeling simulations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Advances in Modeling Earth Systems}{6}{1}{59-74}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/2013MS000269} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1002/2013MS000269} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wodzicki%
+\ \BBA {} Rapp%
+}{%
+Wodzicki%
+\ \BBA {} Rapp%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Wodzicki2016}
+\APACinsertmetastar {%
+Wodzicki2016}%
+\begin{APACrefauthors}%
+Wodzicki, K\BPBI R.%
+\BCBT {}\ \BBA {} Rapp, A\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Long-term characterization of the Pacific ITCZ using TRMM, GPCP, and ERA-Interim} {Long-term characterization of the pacific itcz using trmm, gpcp, and era-interim}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Geophysical Research: Atmospheres}{121}{7}{3153-3170}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/2015JD024458} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1002/2015JD024458} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Young%
+, Knapp%
+, Inamdar%
+, Hankins%
+\BCBL {}\ \BBA {} Rossow%
+}{%
+Young%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+ISCCP_ref}
+\APACinsertmetastar {%
+ISCCP_ref}%
+\begin{APACrefauthors}%
+Young, A\BPBI H.%
+, Knapp, K\BPBI R.%
+, Inamdar, A.%
+, Hankins, W.%
+\BCBL {}\ \BBA {} Rossow, W\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The International Satellite Cloud Climatology Project H-Series climate data record product} {The international satellite cloud climatology project h-series climate data record product}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Earth System Science Data}{10}{1}{583--593}.
+\newblock
+\begin{APACrefURL} \url{https://essd.copernicus.org/articles/10/583/2018/} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.5194/essd-10-583-2018} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zelinka%
+\ \protect \BOthers {.}}{%
+Zelinka%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+Zelinka2020}
+\APACinsertmetastar {%
+Zelinka2020}%
+\begin{APACrefauthors}%
+Zelinka, M\BPBI D.%
+, Myers, T\BPBI A.%
+, McCoy, D\BPBI T.%
+, Po-Chedley, S.%
+, Caldwell, P\BPBI M.%
+, Ceppi, P.%
+\BDBL {}Taylor, K\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Causes of higher climate sensitivity in CMIP6 models} {Causes of higher climate sensitivity in cmip6 models}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{47}{1}{e2019GL085782}.
+\newblock
+\begin{APACrefURL} \url{https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
