@@ -270,6 +270,31 @@ Byrne, M\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Doelling%
+\ \protect \BOthers {.}}{%
+Doelling%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+CERES_ref2}
+\APACinsertmetastar {%
+CERES_ref2}%
+\begin{APACrefauthors}%
+Doelling, D\BPBI R.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+\APACrefbtitle {CERES SYN1deg-Day Terra-Aqua MODIS Edition 4A.} {Ceres syn1deg-day terra-aqua modis edition 4a.}
+\newblock
+\APACaddressPublisher{}{NASA Langley Atmospheric Science Data Center DAAC}.
+\newblock
+\begin{APACrefDOI} \doi{10.5067/CERES/SYN1deg-Day_Terra-Aqua_Edition4A} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Emanuel%
 , Wing%
 \BCBL {}\ \BBA {} Vincent%
@@ -691,30 +716,6 @@ Mardia, K\BPBI V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-{NOAA Physical Sciences Laboratory, Climate Prediction Center}%
-}{%
-{NOAA Physical Sciences Laboratory, Climate Prediction Center}%
-}{%
-{\protect \APACyear {2025}}%
-}]{%
-CERES_ref}
-\APACinsertmetastar {%
-CERES_ref}%
-\begin{APACrefauthors}%
-{NOAA Physical Sciences Laboratory, Climate Prediction Center}.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2025}{}{}.
-\newblock
-\APACrefbtitle {CPC Daily Blended Outgoing Longwave Radiation (OLR) – 1°\,×\,1°.} {Cpc daily blended outgoing longwave radiation (olr) – 1°\,×\,1°.}
-\newblock
-\APAChowpublished {\url{https://psl.noaa.gov/data/gridded/data.cpc_blended_olr-1deg.html}}.
-\newblock
-\APACrefnote{Daily OLR data (1991–present); please acknowledge NOAA PSL when using}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Pendergrass%
 , Reed%
 \BCBL {}\ \BBA {} Medeiros%
@@ -831,6 +832,31 @@ Retsch, M\BPBI H.%
 \APACjournalVolNumPages{Journal of Geophysical Research: Atmospheres}{125}{}{}.
 \newblock
 \begin{APACrefDOI} \doi{10.1029/2019JD031801} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ropelewski%
+\ \BBA {} Jones%
+}{%
+Ropelewski%
+\ \BBA {} Jones%
+}{%
+{\protect \APACyear {1987}}%
+}]{%
+Ropelewski1987}
+\APACinsertmetastar {%
+Ropelewski1987}%
+\begin{APACrefauthors}%
+Ropelewski, C.%
+\BCBT {}\ \BBA {} Jones, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1987}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An extension of the Tahiti–Darwin Southern Oscillation Index} {An extension of the tahiti–darwin southern oscillation index}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Monthly Weather Review}{115}{}{2161--2165}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

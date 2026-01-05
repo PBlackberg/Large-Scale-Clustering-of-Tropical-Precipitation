@@ -4,40 +4,39 @@ in both observations and an ensemble of global climate models (GCMs) primarily f
 We begin by describing the datasets (both model and observational) used, before we describe the quantification of large-scale clustering, and our analysis framework.
 
 \subsection{Models}
-We use simulations from 27 GCMs from CMIP6 \citep{Eyring2016}, 
-using data from the years 1970-1999 in the historical scenario, representing the current climate, 
+We use simulations from 27 GCMs from CMIP6 \citep{Eyring2016}, using data from the years 1970-1999 in the historical scenario, representing the current climate, 
 and from the years 2070-2099 under the Shared Socioeconomic Pathway 585 (SSP5-8.5), representing a warmer climate. 
-The models are chosen based on availability of the required variables and are shown in Figure \ref{spatial_preference_warmingSCATTER_BOX}. 
-We use one ensemble member from each model.
+The models are chosen based on availability of the required variables and are shown in Figure 6. We use one ensemble member from each model.
 
 In addition to the CMIP6 models, we also consider a simulation using a high-resolution GCM referred to here as IFS\_9\_FESOM\_5 \citep{IFS_ref}. 
-The Deutsches Klimarechenzentrum (DKRZ) Next Generation Earth Modelling Systems (NextGEMS) pre-final cycle provides high-resolution globally simulated atmospheric and oceanic variables for SSP3-7.0 forcing between 2025-2049 
-using the ECMWF Integrated Forecasting System (IFS) at $\sim$9 km horizontal grid spacing for the atmosphere and the Finite-VolumE Sea Ice-Ocean model version 2 (FESOM2) at 5 km horizontal grid spacing for the ocean \citep{IFS_ref}. 
+The Deutsches Klimarechenzentrum (DKRZ) Next Generation Earth Modelling Systems (NextGEMS) pre-final cycle provides high-resolution globally simulated atmospheric and oceanic variables 
+for SSP3-7.0 forcing between 2025-2049 using the ECMWF Integrated Forecasting System (IFS) at $\sim$9 km horizontal grid spacing for the atmosphere 
+and the Finite-VolumE Sea Ice-Ocean model version 2 (FESOM2) at 5 km horizontal grid spacing for the ocean \citep{IFS_ref}. 
 Although the model is at high resolution compared to the CMIP6 models, it retains a convection parameterization, and we therefore describe it as a GCM rather than a storm-resolving model. 
 Because the climate change signal during the simulation is small, we only use the high-resolution GCM to characterize interannual variability, using all available years.
 
 \subsection{Observations}
 \label{sec:methods:obs}
-Observed clustering of tropical precipitation is quantified based on daily precipitation estimates from the National Oceanic and Atmospheric Administration Global Precipitation Climatology Project (NOAA-GPCP) \citep{gpcp2023}, 
+Observed clustering of tropical precipitation is quantified based on 
+daily precipitation estimates from the National Oceanic and Atmospheric Administration Global Precipitation Climatology Project (NOAA-GPCP) \citep{gpcp2023}, 
 using the method described in the next subsection. 
-We further use NOAA-GlobalTemp \citep{noaa_tas2024}, and 
-Clouds and the Earth's Radiant Energy System (CERES) data \citep{CERES_ref} 
-to provide observational estimates of surface temperature and outgoing longwave radiation, respectively. 
+We further use NOAA-GlobalTemp \citep{noaa_tas2024}, and Clouds and the Earth's Radiant Energy System (CERES) data \citep{CERES_ref2} 
+to provide observational estimates of surface temperature and \change[\firstAuthorEdit]{outgoing longwave radiation}{Top of the atmosphere radiative fluxes}, respectively. 
 Estimates of vertical pressure velocity and specific and relative humidity are taken from the fifth generation of the European Centre for Medium-Range Weather Forecasts reanalysis (ERA5) \citep{ERA52023}. 
 Apart from precipitation, all variables are taken as monthly averages.
 
 Finally, we develop a simple estimate of the low-cloud fraction using the tropical weather states defined in \citet{Tselioudis2010} 
 based on data from the International Satellite Cloud Climatology Project (ISCCP) \citep{ISCCP_ref}. 
-\citet{Tselioudis2010} used a clustering algorithm to categorize histograms of cloud-top pressure and optical thickness given by the ISCCP D1 dataset into a series of weather states defined in three hourly polar-orbiting satellite scans 
-with daily global coverage on a $1^\circ{}\times1^\circ{}$ grid. 
+\citet{Tselioudis2010} used a clustering algorithm to categorize histograms of cloud-top pressure and optical thickness given by the ISCCP D1 dataset into a series of weather states 
+defined in three hourly polar-orbiting satellite scans with daily global coverage on a $1^\circ{}\times1^\circ{}$ grid. 
 Each weather state is characterized by a histogram in cloud-top pressure and optical thickness that represents the centroid over all members of that weather state. 
-Here we estimate the cloud fraction as a function of pressure for a given weather state as the total frequency of clouds of all optical thicknesses in a given range of cloud-top pressure within the corresponding centroid histogram. 
-We then calculate the low-cloud fraction $LCF_i$ of weather state $i$ as the total cloud fraction below 600 hPa. 
+Here we estimate the cloud fraction as a function of pressure for a given weather state as the total frequency of clouds of all optical thicknesses in a given range of cloud-top pressure 
+within the corresponding centroid histogram. We then calculate the low-cloud fraction $LCF_i$ of weather state $i$ as the total cloud fraction below 600 hPa. 
 The monthly low-cloud fraction is taken as
  \begin{equation}
      LCF = \sum_i f_i LCF_i,
  \end{equation}
-where $f_i$ is the frequency of weather state $i$ over the month in question. 
+where $f_i$ is the frequency of weather state $i$ over the month in question.
 
 As described further below, all observational datasets are regridded conservatively to a common $2.8^\circ{}\times2.8^\circ{}$ grid for analysis. 
 We use observations covering the time period between 1998-2023 for all datasets, except for cloud fraction (based on ISCCP), which is limited to 1998-2017. 
@@ -47,48 +46,80 @@ We quantify clustering of precipitation following \citet{Blackberg_Singh2022} us
 To facilitate the comparison of clustering across different models and the observations, 
 we first interpolate the daily precipitation to a $2.8^\circ{}\times2.8^\circ{}$ grid using a first-order conservative method \citep{Jones1999} to preserve tropical-mean properties from the native grid. 
 Next we define heavily precipitating regions as gridboxes for which the precipitation rate exceeds a threshold. 
-The threshold is calculated as the 95th spatial percentile of daily precipitation over all gridboxes in the tropics temporally averaged over the 30-year climatology (or 25-year in the case of observations). 
-For the GPCP observations, this threshold is 16 mm day$^{-1}$. 
+The threshold is calculated as the 95th spatial percentile of daily precipitation over all gridboxes in the tropics temporally averaged over the 30-year climatology 
+(or 25-year in the case of observations \add[\firstAuthorEdit]{and the high-resolution model}). 
+For the GPCP observations, this threshold is 16 mm day$^{-1}$ \add[\firstAuthorEdit]{and in models the threshold range between 15-17 mm day$^{-1}$}. 
 Distinct heavy precipitation features are identified as 8-connected contiguous regions of precipitation exceeding the threshold or single grid boxes if there are no neighboring connections.
+\add[\firstAuthorEdit]{While there are conceptual differences in what type of rainfall is represented by different percentile thresholds, 
+overall conclusions of the paper is not sensitive to using the 90th, 95th, or 97th percentile.} 
 
-We define our primary measure of clustering, $A_m$, as the mean area of heavy precipitation features over the entire tropics. 
-$A_m$ conceptually captures clustering by distinguishing scenes with many small precipitation features and scenes where precipitation is aggregated into fewer and/or larger precipitating features (Figure \ref{spatial_preference_exampleMAPS}). 
-The mean area of features, $A_m$, was chosen due to its interpretability, however, we note that it is only one aspect of the large-scale organization of precipitation, and $A_m$ does not describe important spatial characteristics such as 
-the total area, 
-shape, 
-proximity, 
-gradients of precipitation intensity, 
-and location of precipitation features. 
-A number of other measures of large-scale clustering are analyzed and their interrelationship is presented in Figures S1-4 in the supporting information.
-
+We define our primary measure of clustering, $A_m$, as the mean area of heavy precipitation features over the entire tropics.
+$A_m$ conceptually captures clustering by distinguishing scenes with many small precipitation features 
+and scenes where precipitation is aggregated into fewer and/or larger precipitating features (Figure \ref{spatial_preference_exampleMAPS}). 
+The mean area of features, $A_m$, was chosen due to its interpretability, however, we note that it is only one aspect of the large-scale organization of precipitation, 
+and $A_m$ does not describe important spatial characteristics 
+\change[\firstAuthorEdit]{
+such as the total area, shape, proximity, gradients of precipitation intensity, and location of precipitation features. 
+}{
+such as the total area coverage, proximity, location, shape, and gradients of precipitation intensity of precipitation features. 
+}
+\change[\firstAuthorEdit]{
+A number of other measures of large-scale clustering are analyzed and their interrelationship is presented in Figures S1-2 in the supporting information.
+}{
+A number of other measures of large-scale clustering are analyzed and the interrelationship of a key subset of metrics is presented in Figures S1-2 in the supporting information.
+}
 An important aspect of our method is that, by definition, regions of heavy precipitation occupy 5\% of the domain on average. 
-Thus when comparing two climates, the mean area fraction of heavy precipitation $\overline{A_f}$ remains constant. 
+Thus when comparing two climates, the \change[\firstAuthorEdit]{mean}{time-mean} area \change[\firstAuthorEdit]{fraction of}{covered by} heavy precipitation $\overline{C}$ remains constant. 
 Differences in the mean area of features, $A_m$, between climates are entirely due to a reorganization of precipitation, 
+\change[\firstAuthorEdit]{
 and changes in $A_m$ are inversely related to the mean number of precipitation features. 
+}{
+where an increase in $A_m$ increases the general proximity of heavily precipitating points to each other, $P_g$, in that the number of distinct precipitation features (N) is reduced 
+(mathematically directly related as reciprocals for the same total area coverage, $Am = C / N$).
+}
 However, the above constraint does not apply to the precipitation distribution during a given month. 
-Indeed, as we shall see, an important driver of variations in tropical precipitation clustering in interannual variability is the area fraction of precipitation, $A_f$. 
-We therefore consider the behavior of both the mean area of heavy precipitation features, $A_m$, and the area fraction of heavy precipitation, $A_f$, in our analysis below.
+Indeed, as we shall see, an important driver of variations in tropical precipitation clustering in interannual variability 
+is the area \change[\firstAuthorEdit]{fraction}{coverage} of \add[\firstAuthorEdit]{heavy} precipitation, \change[\firstAuthorEdit]{$A_f$}{$C$}. 
+We therefore consider the behavior of both the mean area of heavy precipitation features, $A_m$, 
+and the area \change[\firstAuthorEdit]{fraction}{coverage} of heavy precipitation, \change[\firstAuthorEdit]{$A_f$}{$C$}, in our analysis below.
 
 \subsection{Describing Relationships to Large-Scale Clustering of Heavy Precipitation}
 Having quantified large-scale precipitation clustering, we seek to characterize the relationships between such clustering and other large-scale climate variables. 
 Specifically, we consider these relationships for interannual variability in both models and observations, and for changes in climate across the CMIP6 ensemble. 
-Throughout, we define interannual variability in a given variable by deseasonalized monthly anomalies, calculated as the monthly-mean anomaly from the climatology of the associated month after detrending the time series. 
+Throughout, we define interannual variability in a given variable by deseasonalized monthly anomalies, 
+calculated as the monthly-mean anomaly from the climatology of the associated month after detrending the time series. 
 The trend is estimated by a first-order linear least squares regression of the data at each location from the the daily (precipitation-based metrics) or monthly (all other metrics) time series.
+\add[\firstAuthorEdit]{However, relationships are consistent regardless of whether the linear trend is removed or not}.
 
-As we will see, for interannual variability, the mean area of features, $A_m$, and the area fraction of precipitation, $A_f$, are strongly correlated with each other and to the large-scale climatic state. 
-To estimate the individual effect of $A_m$, we apply the method of Pearson partial correlation \citep{mardia1979multivariate}. 
+As we will see, for interannual variability, the mean area of features, $A_m$, and the area \change[\firstAuthorEdit]{fraction}{coverage} of precipitation, \change[\firstAuthorEdit]{$A_f$}{$C$}, 
+are strongly correlated with each other and to the large-scale climatic state. 
+\change[\firstAuthorEdit]{
+To estimate the individual effect of $A_m$, we apply the method of Pearson partial correlation
+}{
+To estimate the individual effect of the general proximity of heavily precipitating points to each other (Figure 3c), $P_g$, 
+analogous to the climatological change in $Am$ with warming, we apply the method of Pearson partial correlation
+}
+\citep{mardia1979multivariate}.
 The partial correlation $r(X,Y|Z)$ represents the relationship between variables $X$ and $Y$ after the removal of the effect of $Z$, and is given by
 \begin{equation}
     r(X,Y|Z) = \frac{r(X,Y) - r(X,Z)r(Y,Z)}{\sqrt{1-r^2(X,Z)}\sqrt{1-r^2(Y,Z)}},
 \end{equation}
 where $r(X,Y)$ is the regular correlation between $X$ and $Y$. 
+\change[\firstAuthorEdit]{
 The significance of partial correlations is evaluated using the standard t-test for partial correlations.
+}{
+For partial correlations and simple linear regression, relationships are considered significant if the correlation coefficient is large relative to its uncertainty, 
+as quantified by a standard two-sided t-test, such that the probability of observing a correlation by chance under the null hypothesis of no correlation is below 5\%. 
+However, further robustness testing is applied for model-spread correlations, in which potential outliers are removed before calculating the correlations.
+}
 
 \clearpage
 \begin{figure}
     \centering
     \includegraphics{sections/method/figures/example_plot.pdf}
-    \caption{February daily snapshots of GPCP precipitation (blue colors) and 
+    \caption{
+    \change[\firstAuthorEdit]{
+    February daily snapshots of GPCP precipitation (blue colors) and 
     regions of heavy precipitation (black shading) with 
     monthly contour of ERA5 500 hPa relative humidity representing the median over the tropics (black line) and 
     monthly ISCCP low cloud fraction (red colors). 
@@ -98,10 +129,60 @@ The significance of partial correlations is evaluated using the standard t-test 
     the Oceanic Ni\~no Index (ONI) taken from NOAA-GlobalTemp. 
     From (a-c), clustering increases according to $A_m$. 
     The clustering from (a-b) is primarily due to an increase in $A_f$, whereas 
-    the clustering from (b-c) is primarily due to the closer proximity of heavy precipitation to the central Pacific.}
+    the clustering from (b-c) is primarily due to the closer proximity of heavy precipitation to the central Pacific.
+    }{
+    February daily snapshots of GPCP precipitation (blue colors) and heavy precipitation (black shading) features (red contour), 
+    with monthly specific humidity representing the median over the tropics (black contour). 
+    The panel titles show the total area coverage of heavy precipitation, $C$, and the mean area of precipitation features, $Am$, with
+    the proximity of heavily precipitation points to the central pacific, equator, and hydrological equator below
+    (described in greater detail in Figure 4).
+    }
+    }
 \label{spatial_preference_exampleMAPS}
 \end{figure}
 \clearpage
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+% \ref{spatial_preference_cz_cm_cheq}
+
+
+
+% == Track changes commands ==
+%  \note[editor]{The note}
+%  \annote[editor]{Text to annotate}{The note}
+%  \add[editor]{Text to add}
+%  \remove[editor]{Text to remove}
+%  \change[editor]{Text to remove}{Text to add}
+% complete documentation is here: http://trackchanges.sourceforge.net/
+
+% ex:
+% \change[\firstAuthorEdit]{Text to remove}{Text to add}
+% \add[\firstAuthorEdit]{}
+
+
+
+
+
+
+
+% \clearpage
+% \begin{figure}
+%     \centering
+%     \includegraphics{sections/result_1/figures/clim_change_scatter_cz_cm_cheq}
+%     \caption{Increase in frequency of occurrence of heavy precipitation, $C$, regressed onto increase in $A_m$ per kelvin tropical warming from the historical to the SSP585 scenario simulation period across the CMIP6 ensemble. Contour shows the ensemble-mean 90th percentile of $C$ in the historical period and crosses indicate whether correlations are statistically significant.}
+% \label{spatial_preference_warmingSCATTER_BOX2}
+% \end{figure}
+% \clearpage
