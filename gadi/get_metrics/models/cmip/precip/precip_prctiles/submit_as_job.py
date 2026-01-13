@@ -133,11 +133,11 @@ def main():
         print(f'\njob group {i}')
         [print(f) for f in [d, t, lon, lat, r, p]]
         r_folder, r_filename = get_path(d, t, lon, lat, r, p)
-        # -- clear temp calc from associated folder --                                                                              #
-        folder = f'{folder_scratch}/temo_calc/{r_folder}/{r_filename}'                                                              #
-        os.makedirs(folder, exist_ok=True)                                                                                          #
+        # -- clear temp calc from associated folder --                                                                              
+        folder = f'{folder_scratch}/temo_calc/{r_folder}/{r_filename}'                                                              
+        os.makedirs(folder, exist_ok=True)                                                                                          
         temp_files = [f'{folder}/{f}' for f in os.listdir(folder) if f.endswith('.nc')]                                             # clearing the folder that is filled with partial results
-        [os.remove(path_temp) for path_temp in temp_files]                                                                          #
+        [os.remove(path_temp) for path_temp in temp_files]                                                                          
         # -- job resources (calc) --
         n_jobs_calc = 1                                                                                                             # Jobs specs (number of jobs)
         walltime_calc = '0:30:00'                                                                                                   # job time for each section
@@ -172,7 +172,7 @@ def main():
                 job_ids_calc.append(sJ.submit_job(python_script = f'{os.path.dirname(__file__)}/main_func.py',                      # the main_func.py script in this folder 
                                             folder =            f'{folder_scratch}/oe_files/{r_folder}',                            # folder for terminal output
                                             filename =          f'{r_filename}_{section_range}',                                    # file for terminal output                
-                                            walltime =          str(walltime_calc),                                                 # max job length
+                                            walltime =          str(walltime_calc),                                                 # max job time
                                             mem =               mem_calc,                                                           # max mem
                                             ncpus =             str(ncpus_calc),                                                    # max cpus
                                             env_variables =     env_variables,                                                      # job specs                                                                

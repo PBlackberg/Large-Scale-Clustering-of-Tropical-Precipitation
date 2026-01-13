@@ -66,14 +66,16 @@ def get_conv_threshold(dataset, years, da, fixed_area = False):
             f'_{time_period.split(":")[0]}_{time_period.split(":")[1]}'                                                   
             )       
     path = f'{folder}/{filename}.nc'
-    # -- find metric -- 
-    if not fixed_area:
-        threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
-        da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
-    else:
-        threshold = xr.open_dataset(path)[metric_var]
-        da_threshold = threshold.sel(time = da.time, method='nearest')
-    return da_threshold
+    threshold = xr.open_dataset(path)
+
+    # # -- find metric -- 
+    # if not fixed_area:
+    #     threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
+    #     da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
+    # else:
+    #     threshold = xr.open_dataset(path)[metric_var]
+    #     da_threshold = threshold.sel(time = da.time, method='nearest')
+    return threshold
 
 
 # == calculate metric ==
@@ -87,22 +89,33 @@ def calculate_metric(data_objects):
     da = da.sel(lon = slice(int(lon_area.split(':')[0]), int(lon_area.split(':')[1])), 
                 lat = slice(int(lat_area.split(':')[0]), int(lat_area.split(':')[1]))
                 )
+    conv_thresholds = get_conv_threshold(dataset, years, da)
+    # print(conv_thresholds)
+    # exit()
+
+    # -- for area weighting --
     da_area = cW.get_area_matrix(da.lat, da.lon)
 
-    # -- conv as exceeding precipitation threshsold --
-    conv_threshold = get_conv_threshold(dataset, years, da)
-    conv_regions = (da > conv_threshold) * 1
-    ds[f'{metric_name}'] = doc.area_fraction(conv_regions, da_area)
+    # -- threshold variations --
+    quantile_thresholds = [0.90, 0.95, 0.97] #, 0.97, 0.99] #0.9, 
+    for quant in quantile_thresholds:
+        quant_str = f'precip_prctiles_{int(quant * 100)}'
+        conv_regions = (da > conv_thresholds[quant_str].mean(dim = 'time').data) * 1
+        # print((conv_regions * da_area).sum())
+        # print(type((conv_regions * da_area).sum()))
+        # exit()
 
+        # -- fill xr.dataset with metric --
+        ds[f'{metric_name}_thres_{quant_str}'] = (conv_regions * da_area).sum(dim = ('lat', 'lon'))
 
     # == fixed area version ==
-    conv_threshold = get_conv_threshold(dataset, years, da, fixed_area = True)
-    conv_regions = (da > conv_threshold) * 1
-    ds[f'{metric_name}_fixed_area'] = doc.area_fraction(conv_regions, da_area)
+    # conv_threshold = get_conv_threshold(dataset, years, da, fixed_area = True)
+    # conv_regions = (da > conv_threshold) * 1
+    # ds[f'{metric_name}_fixed_area'] = doc.area_fraction(conv_regions, da_area)
 
-
+    # print(ds)
+    # exit()
     return ds
-
 
 
 

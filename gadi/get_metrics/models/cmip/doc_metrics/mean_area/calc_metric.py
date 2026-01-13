@@ -42,7 +42,7 @@ doc = import_relative_module('util_calc.doc_metrics.mean_area.mean_area',       
 # == metric funcs ==
 # -- get conv_threshold --
 def get_conv_threshold(dataset, years, da, fixed_area = False):
-    folder_work, folder_scratch, SU_project, storage_project, data_projects = mS.get_user_specs(show = False)           # user settings
+    folder_work, folder_scratch, SU_project, storage_project, data_projects = mS.get_user_specs(show = False)       # user settings
     # -- specify metric --
     data_tyoe_group =   'models'
     data_type =         'cmip'
@@ -55,9 +55,10 @@ def get_conv_threshold(dataset, years, da, fixed_area = False):
     lat_area =          '-30:30'
     resolution =        2.8
     time_period =       '1970-01:1999-12' if 1970 <= int(years[0]) <= 1999 else '2070-01:2099-12' 
+    
     # -- find path --
     folder = f'{folder_work}/metrics/{data_tyoe_group}/{data_type}/{metric_group}/{metric_name}/{dataset}'
-    filename = (
+    filename = (                                                                                                             
             f'{metric_name}'   
             f'_{dataset}'                                                                                                 
             f'_{t_freq}'                                                                                                  
@@ -67,61 +68,58 @@ def get_conv_threshold(dataset, years, da, fixed_area = False):
             f'_{time_period.split(":")[0]}_{time_period.split(":")[1]}'                                                   
             )       
     path = f'{folder}/{filename}.nc'
-    # -- find metric -- 
-    if not fixed_area:
-        threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
-        da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
-    else:
-        threshold = xr.open_dataset(path)[metric_var]
-        da_threshold = threshold.sel(time = da.time, method='nearest')
-    return da_threshold
+    threshold = xr.open_dataset(path)
+
+    # # -- find metric -- 
+    # if not fixed_area:
+    #     threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
+    #     da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
+    # else:
+    #     threshold = xr.open_dataset(path)[metric_var]
+    #     da_threshold = threshold.sel(time = da.time, method='nearest')
+    return threshold
 
 
 # == calculate metric ==
 def calculate_metric(data_objects):
-    # == create metric ==
+    # -- create empty metric --
+    metric_name = f'{Path(__file__).resolve().parents[0].name}'
+    ds = xr.Dataset()
+
     # -- check data --
     da, lon_area, lat_area, dataset, years = data_objects
     da = da.sel(lon = slice(int(lon_area.split(':')[0]), int(lon_area.split(':')[1])), 
                 lat = slice(int(lat_area.split(':')[0]), int(lat_area.split(':')[1]))
                 )
+    conv_thresholds = get_conv_threshold(dataset, years, da)
+    
+    # print(da)
+    # exit()
+
+    # -- for area weighting --
     da_area = cW.get_area_matrix(da.lat, da.lon)                                # area matrix
 
-    # -- convective regions --
-    conv_threshold = get_conv_threshold(dataset, years, da)                     # convective precipitation threshold
-    conv_regions = (da > conv_threshold) * 1                                    # exceeding threshold
-    
-    # -- convective objects --
-    labels_np = skm.label(conv_regions, background = 0, connectivity = 2)       # returns numpy array
-    labels_np = cB.connect_boundary(labels_np)                                  # connect objects across boundary
-    labels = np.unique(labels_np)[1:]                                           # first unique value (zero) is background
-    labels_xr = xr.DataArray(                                                   # convective objects
-        data = labels_np,
-        dims=["lat", "lon"],
-        coords={"lat": da.lat, "lon": da.lon},
-        )
-    
-    # -- create empty xr.Dataset --
-    metric_name = Path(__file__).resolve().parents[0].name
-    ds = xr.Dataset()
+    # -- threshold variations --
+    quantile_thresholds = [0.90, 0.95, 0.97] #, 0.97, 0.99] #0.9, 
+    for quant in quantile_thresholds:
+        quant_str = f'precip_prctiles_{int(quant * 100)}'
+        conv_regions = (da > conv_thresholds[quant_str].mean(dim = 'time').data) * 1
 
-    # -- fill xr.Dataset with mean area --
-    ds[f'{metric_name}'] = doc.get_mean_area(labels_xr, labels, da_area)
+        # -- calculate metric --
+        labels_np = skm.label(conv_regions, background = 0, connectivity = 2)       # returns numpy array
+        labels_np = cB.connect_boundary(labels_np)                                  # connect objects across boundary (when full tropics)
+        labels = np.unique(labels_np)[1:]                                           # first unique value (zero) is background
+        labels_xr = xr.DataArray(                                                   # convective objects
+            data = labels_np,
+            dims=["lat", "lon"],
+            coords={"lat": da.lat, "lon": da.lon},
+            )
+        metric_timestep = doc.get_mean_area(labels_xr, labels, da_area)
 
-    # == fill xr.Dataset with fixed area fraction version ==
-    conv_threshold = get_conv_threshold(dataset, years, da, fixed_area=True)    # fixed area
-    conv_regions = (da > conv_threshold) * 1                                    #
-    labels_np = skm.label(conv_regions, background = 0, connectivity = 2)       # returns numpy array
-    labels_np = cB.connect_boundary(labels_np)                                  # connect objects across boundary
-    labels = np.unique(labels_np)[1:]                                           # first unique value (zero) is background
-    labels_xr = xr.DataArray(                                                   # convective objects
-        data = labels_np,
-        dims=["lat", "lon"],
-        coords={"lat": da.lat, "lon": da.lon},
-        )
-    ds[f'{metric_name}_fixed_area'] = doc.get_mean_area(labels_xr, labels, da_area)
-    
-    # == give time coordinate to xr.Dataset ==
+        # -- fill xr.dataset with metric --
+        ds[f'{metric_name}_thres_{quant_str}'] = metric_timestep
+
+    # == give time coordinate ==
     ds = ds.expand_dims(dim = 'time')
     ds = ds.assign_coords(time=[da.time.data])
 
@@ -129,4 +127,57 @@ def calculate_metric(data_objects):
     # print(ds)
     # exit()
     return ds
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # # -- convective regions --
+    # conv_threshold = get_conv_threshold(dataset, years, da)                     # convective precipitation threshold
+    # conv_regions = (da > conv_threshold) * 1                                    # exceeding threshold
+    
+    # # -- convective objects --
+    # labels_np = skm.label(conv_regions, background = 0, connectivity = 2)       # returns numpy array
+    # labels_np = cB.connect_boundary(labels_np)                                  # connect objects across boundary
+    # labels = np.unique(labels_np)[1:]                                           # first unique value (zero) is background
+    # labels_xr = xr.DataArray(                                                   # convective objects
+    #     data = labels_np,
+    #     dims=["lat", "lon"],
+    #     coords={"lat": da.lat, "lon": da.lon},
+    #     )
+    
+    # # -- create empty xr.Dataset --
+    # metric_name = Path(__file__).resolve().parents[0].name
+    # ds = xr.Dataset()
+
+    # # -- fill xr.Dataset with mean area --
+    # ds[f'{metric_name}'] = doc.get_mean_area(labels_xr, labels, da_area)
+
+    # # == fill xr.Dataset with fixed area fraction version ==
+    # conv_threshold = get_conv_threshold(dataset, years, da, fixed_area=True)    # fixed area
+    # conv_regions = (da > conv_threshold) * 1                                    #
+    # labels_np = skm.label(conv_regions, background = 0, connectivity = 2)       # returns numpy array
+    # labels_np = cB.connect_boundary(labels_np)                                  # connect objects across boundary
+    # labels = np.unique(labels_np)[1:]                                           # first unique value (zero) is background
+    # labels_xr = xr.DataArray(                                                   # convective objects
+    #     data = labels_np,
+    #     dims=["lat", "lon"],
+    #     coords={"lat": da.lat, "lon": da.lon},
+    #     )
+    # ds[f'{metric_name}_fixed_area'] = doc.get_mean_area(labels_xr, labels, da_area)
+    
+    # # == give time coordinate to xr.Dataset ==
+    # ds = ds.expand_dims(dim = 'time')
+    # ds = ds.assign_coords(time=[da.time.data])
+
+
+
 

@@ -85,19 +85,22 @@ def get_metric(dataset, t_freq, lon_area, lat_area, resolution, time_period, yea
     ds = mC.calculate_metric(data_objects)
 
     # -- save result from section --
-    folder = f'{folder_scratch}/_calc/{r_folder}/{r_filename}'
+    folder = f'{folder_scratch}/temp_calc/{r_folder}/{r_filename}'
     filename = f'{r_filename}_{section_range}.nc'
     path = f'{folder}/{filename}'
+    # print(path)
+    # exit()
     os.makedirs(os.path.dirname(path), exist_ok=True)
     ds.to_netcdf(path, mode="w")
     print('saved section result')
+    # exit()
 
 # == concatenate results ==
 def concat_result(r_folder, r_filename, test):
     # -- load collection of partial results --
     print('finding temp files for section results')    
     folder_work, folder_scratch, SU_project, storage_project, data_projects = mS.get_user_specs()
-    folder = f'{folder_scratch}/_calc/{r_folder}/{r_filename}'
+    folder = f'{folder_scratch}/temp_calc/{r_folder}/{r_filename}'
     temp_files = [f'{folder}/{f}' for f in os.listdir(folder) if f.endswith('.nc')]
 
     # -- concatenate --
@@ -134,6 +137,9 @@ def main(switch, dataset, t_freq, lon_area, lat_area, resolution, time_period, y
 # == when this script is ran / submitted ==
 if __name__ == '__main__':
     if not os.environ.get("PBS_SCRIPT"):                                                                                                # when run interactively (test)
+        # ds = xr.open_dataset('/g/data/k10/cb4968/metrics/models/cmip/doc_metrics/area_fraction/INM-CM5-0/area_fraction_INM-CM5-0_daily_0-360_-30-30_128x64_1970-01_1999-12.nc')
+        # print(ds)
+        # exit()
         datasets, t_freqs, lon_areas, lat_areas, resolutions, time_periods = jS.set_specs()                                             # all specs
         for i, (t, lat, lon, r, d, p) in enumerate(itertools.product(t_freqs,                                                           #
                                                                     lat_areas,                                                          #

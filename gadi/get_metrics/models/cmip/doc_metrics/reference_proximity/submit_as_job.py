@@ -35,39 +35,48 @@ def import_relative_module(module_name, file_path):
 mS = import_relative_module('user_specs',                   'utils')
 sJ = import_relative_module('util_qsub.submission_funcs',   'utils')
 
+# FGOALS (1970)
+# GFDL (1970)
+# TAI (1970)
+
+# CNRM-HR (walltime)
+# CNRM-ESM
+# NESM3 (2070)
+# 
+
 
 # == Set specs ==
 def set_specs():
     datasets = (                                                                                                                    # Models ordered by change in temperature with warming    
-        'INM-CM5-0',                                                                                                                # 1
-        'IITM-ESM',                                                                                                                 # 2   
-        'FGOALS-g3',                                                                                                                # 3    
-        'INM-CM4-8',                                                                                                                # 4                                
-        'MIROC6',                                                                                                                   # 5                                      
-        'MPI-ESM1-2-LR',                                                                                                            # 6                         
-        # 'KIOST-ESM',                                                                                                              # 7
-        'BCC-CSM2-MR',                                                                                                              # 8           
-        'GFDL-ESM4',                                                                                                                # 9         
-        'MIROC-ES2L',                                                                                                               # 10 
-        'NorESM2-LM',                                                                                                               # 11      
-        # 'NorESM2-MM',                                                                                                             # 12                      
-        'MRI-ESM2-0',                                                                                                               # 13                            
-        'GFDL-CM4',                                                                                                                 # 14      
-        'CMCC-CM2-SR5',                                                                                                             # 15                
-        'CMCC-ESM2',                                                                                                                # 16                                    
+        # 'INM-CM5-0',                                                                                                                # 1
+        # 'IITM-ESM',                                                                                                                 # 2   
+        # 'FGOALS-g3',                                                                                                                # 3    
+        # 'INM-CM4-8',                                                                                                                # 4                                
+        # 'MIROC6',                                                                                                                   # 5                                      
+        # 'MPI-ESM1-2-LR',                                                                                                            # 6                         
+        # # 'KIOST-ESM',                                                                                                              # 7
+        # 'BCC-CSM2-MR',                                                                                                              # 8           
+        # 'GFDL-ESM4',                                                                                                                # 9         
+        # 'MIROC-ES2L',                                                                                                               # 10 
+        # 'NorESM2-LM',                                                                                                               # 11      
+        # # 'NorESM2-MM',                                                                                                             # 12                      
+        # 'MRI-ESM2-0',                                                                                                               # 13                            
+        # 'GFDL-CM4',                                                                                                                 # 14      
+        # 'CMCC-CM2-SR5',                                                                                                             # 15                
+        # 'CMCC-ESM2',                                                                                                                # 16                                    
         'NESM3',                                                                                                                    # 17     
-        'ACCESS-ESM1-5',                                                                                                            # 18 
+        # 'ACCESS-ESM1-5',                                                                                                            # 18 
         'CNRM-ESM2-1',                                                                                                              # 19 
-        'EC-Earth3',                                                                                                                # 20 
-        'CNRM-CM6-1',                                                                                                               # 21
+        # 'EC-Earth3',                                                                                                                # 20 
+        # 'CNRM-CM6-1',                                                                                                               # 21
         'CNRM-CM6-1-HR',                                                                                                            # 22 
-        'KACE-1-0-G',                                                                                                               # 23            
-        'IPSL-CM6A-LR',                                                                                                             # 24
-        'ACCESS-CM2',                                                                                                               # 25 
-        'TaiESM1',                                                                                                                  # 26                      
-        'CESM2-WACCM',                                                                                                              # 27   
-        'CanESM5',                                                                                                                  # 28  
-        'UKESM1-0-LL',                                                                                                              # 29
+        # 'KACE-1-0-G',                                                                                                               # 23            
+        # 'IPSL-CM6A-LR',                                                                                                             # 24
+        # 'ACCESS-CM2',                                                                                                               # 25 
+        # 'TaiESM1',                                                                                                                  # 26                      
+        # 'CESM2-WACCM',                                                                                                              # 27   
+        # 'CanESM5',                                                                                                                  # 28  
+        # 'UKESM1-0-LL',                                                                                                              # 29
         )                                                                                                                           #
     t_freqs = (                                                                                                                     #
         'daily',                                                                                                                    #
@@ -140,9 +149,9 @@ def main():
         [os.remove(path_temp) for path_temp in temp_files]                                                                          #
         # -- job resources (calc) --
         n_jobs_calc = 1                                                                                                             # Jobs specs (number of jobs)
-        walltime_calc = '0:30:00'                                                                                                   # job time for each section
+        walltime_calc = '1:00:00'                                                                                                   # job time for each section
         mem_calc = '100GB'                                                                                                          # memory for each job
-        ncpus_calc = 1                                                                                                              # if parallelizing, do it on the months
+        ncpus_calc = 12                                                                                                              # if parallelizing, do it on the months
         # -- divide time_period calc, in n sections -- 
         job_ids_calc = []                                                                                                           # make concat dependent on calc job completion
         if switch.get('calc'):                                                                                                      # calculate temporal section
@@ -232,4 +241,11 @@ def main():
 # == when this script is ran / submitted ==
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
 

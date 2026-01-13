@@ -35,6 +35,11 @@ def import_relative_module(module_name, file_path):
 mS = import_relative_module('user_specs',                   'utils')
 sJ = import_relative_module('util_qsub.submission_funcs',   'utils')
 
+# BCC
+# IITM
+# NESM3
+# 
+
 
 # == Set specs ==
 def set_specs():
@@ -134,7 +139,7 @@ def main():
         [print(f) for f in [d, t, lon, lat, r, p]]
         r_folder, r_filename = get_path(d, t, lon, lat, r, p)
         # -- clear temp calc from associated folder --                                                                              
-        folder = f'{folder_scratch}/temo_calc/{r_folder}/{r_filename}'                                                              
+        folder = f'{folder_scratch}/temp_calc/{r_folder}/{r_filename}'                                                              
         os.makedirs(folder, exist_ok=True)                                                                                          
         temp_files = [f'{folder}/{f}' for f in os.listdir(folder) if f.endswith('.nc')]                                             # clearing the folder that is filled with partial results
         [os.remove(path_temp) for path_temp in temp_files]                                                                          

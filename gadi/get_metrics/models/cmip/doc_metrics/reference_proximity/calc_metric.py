@@ -40,7 +40,7 @@ pf_M = import_relative_module('helper_funcs.plot_func_map',                     
 
 # == metric funcs ==
 # -- get conv_threshold --
-def get_conv_threshold(dataset, years, da, fixed_area = False):
+def get_conv_threshold(dataset, years): #, da, fixed_area = False):
     folder_work, folder_scratch, SU_project, storage_project, data_projects = mS.get_user_specs(show = False)                               # user settings
     # -- specify metric --
     data_tyoe_group =   'models'
@@ -66,13 +66,14 @@ def get_conv_threshold(dataset, years, da, fixed_area = False):
             f'_{time_period.split(":")[0]}_{time_period.split(":")[1]}'                                                   
             )       
     path = f'{folder}/{filename}.nc'
-    # -- find metric -- 
-    if not fixed_area:
-        threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
-        da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
-    else:
-        threshold = xr.open_dataset(path)[metric_var]
-        da_threshold = threshold.sel(time = da.time, method='nearest')
+    da_threshold = xr.open_dataset(path).load()
+    # # -- find metric -- 
+    # if not fixed_area:
+    #     threshold = xr.open_dataset(path)[metric_var].mean(dim = 'time')
+    #     da_threshold = threshold.broadcast_like(da.isel(lat = 0, lon = 0))
+    # else:
+    #     threshold = xr.open_dataset(path)[metric_var]
+    #     da_threshold = threshold.sel(time = da.time, method='nearest')
     return da_threshold
 
 
@@ -84,69 +85,99 @@ def calculate_metric(data_objects):
 
     # -- check data --
     da, lon_area, lat_area, dataset, years, hus = data_objects
+
+
+    # hus_plev = hus.isel(time = 0) #.sel(plev = 700e2, method='nearest')
+    # frac_nan = xr.where(xr.ufuncs.isnan(hus_plev), 1, 0).mean()
+    # print(frac_nan)
+    # exit()
+
+    # print(hus)
+    # for i, plev in enumerate(hus.plev.data):
+    #     print(f'{plev}:')
+    #     hus_plev = hus.sel(plev = plev) 
+    #     print(hus_plev.isel(time = 0).data)
+    #     print('')
+    # exit()
+
+
     da = da.sel(lon = slice(int(lon_area.split(':')[0]), int(lon_area.split(':')[1])), 
                 lat = slice(int(lat_area.split(':')[0]), int(lat_area.split(':')[1]))
                 )
     hus = hus.sel(lon = slice(int(lon_area.split(':')[0]), int(lon_area.split(':')[1])), 
                 lat = slice(int(lat_area.split(':')[0]), int(lat_area.split(':')[1]))
                 )
-
-    # -- conv as exceeding precipitation threshsold --
-    conv_threshold = get_conv_threshold(dataset, years, da)
-    conv_regions = (da > conv_threshold) * 1
-    conv_regions = conv_regions.where(conv_regions != 0, np.nan)                                                                            # To not spatially averaging over zeros 
     hus = hus.resample(time = 'MS').mean()                                                                                                  # daily coordinate at the start of the month
 
-    # -- references --
-    if conv_regions.lon.max().data >= 350 and conv_regions.lon.min().data <= 10:
-        lon_centre = 180
-    else:
-        lon_centre = (conv_regions.lon.max().data - conv_regions.lon.min().data) / 2
-    ds_line_meridional, da_line_meridional =                        ref.meridional_line(conv_regions.isel(time = 0),        lon_centre)     # zonal contraction
-    ds_line_zonal, da_line_zonal =                                  ref.zonal_line(conv_regions.isel(time = 0),             lat_centre = 0) # meridional contraction
-    ds_line_eq_hydro, da_line_eq_hydro =                            ref.hyrdo_eq_line(conv_regions.isel(time = 0),          hus)            # hydrological equator (function of time in months)
-    ds_line_eq_hydro_median, da_line_eq_hydro_median, median_lat =  ref.hydro_eq_median_line(conv_regions.isel(time = 0),   hus)            # median hydrological position (function of time in months)
-
-    # -- replicate the monthly values to a daily data array, with the nearest month (do da after distance calc) -- 
-    ds_line_eq_hydro =                      ds_line_eq_hydro.reindex(time=conv_regions['time'], method='nearest')
-    ds_line_eq_hydro_median, median_lat =  [da.reindex(time=conv_regions['time'], method='nearest') for da in [ds_line_eq_hydro_median, median_lat]]
-
-    # -- distance to reference --
-    distance_matrix = dM.create_distance_matrix(conv_regions.lat, conv_regions.lon)
-    hydro_eq_distance = xr.concat([dM.find_distance(da_line_eq_hydro.isel(time = month), distance_matrix).assign_coords(time = time_month) for month, time_month in enumerate(da_line_eq_hydro['time'])], dim = 'time')
-    hydro_eq_median_distance = xr.concat([dM.find_distance(da_line_eq_hydro_median.isel(time = month), distance_matrix).assign_coords(time = time_month) for month, time_month in enumerate(da_line_eq_hydro_median['time'])], dim = 'time')
-
-    # -- replicate the monthly values to a daily data array --
-    hydro_eq_distance, hydro_eq_median_distance = [da.reindex(time=conv_regions['time'], method='nearest') for da in [hydro_eq_distance, hydro_eq_median_distance]]
-
-    ds[f'{metric_name}_meridional_line'] =      (dM.find_distance(da_line_meridional,   distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_zonal_line'] =           (dM.find_distance(da_line_zonal,        distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro'] =             (hydro_eq_distance * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro_median'] =      (hydro_eq_median_distance  * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro_median_pos'] =  median_lat
-
-    # -- visualize --
-    plot = False
-    if plot:
-        da_plot_here = hydro_eq_distance
-        for i, day in enumerate(hydro_eq_distance['time'].sel(time = '1970')):
-            folder = f'{os.path.dirname(__file__)}/plots/snapshots'
-            filename = f'snapshot_{i}.png'
-            path = f'{folder}/{filename}'
-            title = str(da_plot_here.isel(time = i).time.data)[0:10]
-            pf_M.plot(da_plot_here.isel(time = i), path, lines = [ds_line_eq_hydro.isel(time = i)], ds_ontop = xr.Dataset({'var': conv_regions.isel(time = i)}), ds_contour = xr.Dataset({'var': conv_regions.fillna(0).mean(dim = 'time')}), title = title)
-            # exit()    
+    # print(hus.isel(time = 0).data)
     # exit()
 
-    # == fixed area version ==
-    conv_threshold = get_conv_threshold(dataset, years, da, fixed_area = True)
-    conv_regions = (da > conv_threshold) * 1
-    conv_regions = conv_regions.resample(time = 'MS').mean()
-    ds[f'{metric_name}_meridional_line_fixed_area'] =           (dM.find_distance(da_line_meridional,   distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_zonal_line_fixed_area'] =                (dM.find_distance(da_line_zonal,        distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro_fixed_area'] =                  (hydro_eq_distance * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro_median_fixed_area'] =           (hydro_eq_median_distance  * conv_regions).mean(dim = ('lat', 'lon'))
-    ds[f'{metric_name}_eq_hydro_median_pos_fixed_area'] =       median_lat
+
+    conv_thresholds = get_conv_threshold(dataset, years)
+    # print(conv_thresholds)
+    # exit()
+
+    # -- threshold variations --
+    quantile_thresholds = [0.90, 0.95, 0.97] #, 0.97, 0.99] #0.9, 
+    for quant in quantile_thresholds:
+        quant_str = f'precip_prctiles_{int(quant * 100)}'
+        conv_regions = (da > conv_thresholds[quant_str].mean(dim = 'time').data) * 1
+        conv_regions = conv_regions.where(conv_regions != 0, np.nan)                                                                            # for not later spatially averaging over zeros 
+
+        # -- references --
+        if conv_regions.lon.max().data >= 350 and conv_regions.lon.min().data <= 10:
+            lon_centre = 180
+        else:
+            lon_centre = (conv_regions.lon.max().data - conv_regions.lon.min().data) / 2
+        ds_line_meridional, da_line_meridional =                        ref.meridional_line(conv_regions.isel(time = 0),        lon_centre)     # zonal contraction
+        ds_line_zonal, da_line_zonal =                                  ref.zonal_line(conv_regions.isel(time = 0),             lat_centre = 0) # meridional contraction
+        ds_line_eq_hydro, da_line_eq_hydro =                            ref.hyrdo_eq_line(conv_regions.isel(time = 0),          hus)            # hydrological equator (function of time in months)
+        ds_line_eq_hydro_median, da_line_eq_hydro_median, median_lat =  ref.hydro_eq_median_line(conv_regions.isel(time = 0),   hus)            # median hydrological position (function of time in months)
+
+        # -- replicate the monthly values to a daily data array, with the nearest month (do da after distance calc) -- 
+        ds_line_eq_hydro =                      ds_line_eq_hydro.reindex(time=conv_regions['time'], method='nearest')
+        ds_line_eq_hydro_median, median_lat =  [da.reindex(time=conv_regions['time'], method='nearest') for da in [ds_line_eq_hydro_median, median_lat]]
+
+        # -- distance to reference --
+        distance_matrix = dM.create_distance_matrix(conv_regions.lat, conv_regions.lon)
+        hydro_eq_distance = xr.concat([dM.find_distance(da_line_eq_hydro.isel(time = month), distance_matrix).assign_coords(time = time_month) for month, time_month in enumerate(da_line_eq_hydro['time'])], dim = 'time')
+        hydro_eq_median_distance = xr.concat([dM.find_distance(da_line_eq_hydro_median.isel(time = month), distance_matrix).assign_coords(time = time_month) for month, time_month in enumerate(da_line_eq_hydro_median['time'])], dim = 'time')
+
+        # -- replicate the monthly values to a daily data array --
+        hydro_eq_distance, hydro_eq_median_distance = [da.reindex(time=conv_regions['time'], method='nearest') for da in [hydro_eq_distance, hydro_eq_median_distance]]
+
+        ds[f'{metric_name}_meridional_line_thres_{quant_str}'] =      (dM.find_distance(da_line_meridional,   distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
+        ds[f'{metric_name}_zonal_line_thres_{quant_str}'] =           (dM.find_distance(da_line_zonal,        distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
+        ds[f'{metric_name}_eq_hydro_thres_{quant_str}'] =             (hydro_eq_distance * conv_regions).mean(dim = ('lat', 'lon'))
+        ds[f'{metric_name}_eq_hydro_median_thres_{quant_str}'] =      (hydro_eq_median_distance  * conv_regions).mean(dim = ('lat', 'lon'))
+        ds[f'{metric_name}_eq_hydro_median_pos_thres_{quant_str}'] =  median_lat
+
+        # -- visualize --
+        plot = False
+        if plot:
+            da_plot_here = hydro_eq_distance
+            for i, day in enumerate(hydro_eq_distance['time'].sel(time = '1970')):
+                folder = f'{os.path.dirname(__file__)}/plots/snapshots'
+                filename = f'snapshot_{i}.png'
+                path = f'{folder}/{filename}'
+                title = str(da_plot_here.isel(time = i).time.data)[0:10]
+                pf_M.plot(da_plot_here.isel(time = i), path, lines = [ds_line_eq_hydro.isel(time = i)], ds_ontop = xr.Dataset({'var': conv_regions.isel(time = i)}), ds_contour = xr.Dataset({'var': conv_regions.fillna(0).mean(dim = 'time')}), title = title)
+                # exit()    
+        # exit()
+        # print(ds)
+        # exit()
+    # print(ds)
+    # exit()
+
+    # # == fixed area version ==
+    # conv_threshold = get_conv_threshold(dataset, years, da, fixed_area = True)
+    # conv_regions = (da > conv_threshold) * 1
+    # conv_regions = conv_regions.resample(time = 'MS').mean()
+    # ds[f'{metric_name}_meridional_line_fixed_area'] =           (dM.find_distance(da_line_meridional,   distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
+    # ds[f'{metric_name}_zonal_line_fixed_area'] =                (dM.find_distance(da_line_zonal,        distance_matrix) * conv_regions).mean(dim = ('lat', 'lon'))
+    # ds[f'{metric_name}_eq_hydro_fixed_area'] =                  (hydro_eq_distance * conv_regions).mean(dim = ('lat', 'lon'))
+    # ds[f'{metric_name}_eq_hydro_median_fixed_area'] =           (hydro_eq_median_distance  * conv_regions).mean(dim = ('lat', 'lon'))
+    # ds[f'{metric_name}_eq_hydro_median_pos_fixed_area'] =       median_lat
 
     return ds
 

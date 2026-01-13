@@ -36,38 +36,44 @@ mS = import_relative_module('user_specs',                   'utils')
 sJ = import_relative_module('util_qsub.submission_funcs',   'utils')
 
 
+
+# KACE -2070
+# MIROC6 - 1970
+
+
+
 # == Set specs ==
 def set_specs():
     datasets = (                                                                                                                    # Models ordered by change in temperature with warming    
-        'INM-CM5-0',                                                                                                                # 1
-        'IITM-ESM',                                                                                                                 # 2   
-        'FGOALS-g3',                                                                                                                # 3    
-        'INM-CM4-8',                                                                                                                # 4                                
+        # 'INM-CM5-0',                                                                                                                # 1
+        # 'IITM-ESM',                                                                                                                 # 2   
+        # 'FGOALS-g3',                                                                                                                # 3    
+        # 'INM-CM4-8',                                                                                                                # 4                                
         'MIROC6',                                                                                                                   # 5                                      
-        'MPI-ESM1-2-LR',                                                                                                            # 6                         
-        # 'KIOST-ESM',                                                                                                              # 7
-        'BCC-CSM2-MR',                                                                                                              # 8           
-        'GFDL-ESM4',                                                                                                                # 9         
-        'MIROC-ES2L',                                                                                                               # 10 
-        'NorESM2-LM',                                                                                                               # 11      
-        # 'NorESM2-MM',                                                                                                             # 12                      
-        'MRI-ESM2-0',                                                                                                               # 13                            
-        'GFDL-CM4',                                                                                                                 # 14      
-        'CMCC-CM2-SR5',                                                                                                             # 15                
-        'CMCC-ESM2',                                                                                                                # 16                                    
-        'NESM3',                                                                                                                    # 17     
-        'ACCESS-ESM1-5',                                                                                                            # 18 
-        'CNRM-ESM2-1',                                                                                                              # 19 
-        'EC-Earth3',                                                                                                                # 20 
-        'CNRM-CM6-1',                                                                                                               # 21
-        'CNRM-CM6-1-HR',                                                                                                            # 22 
-        'KACE-1-0-G',                                                                                                               # 23            
-        'IPSL-CM6A-LR',                                                                                                             # 24
-        'ACCESS-CM2',                                                                                                               # 25 
-        'TaiESM1',                                                                                                                  # 26                      
-        'CESM2-WACCM',                                                                                                              # 27   
-        'CanESM5',                                                                                                                  # 28  
-        'UKESM1-0-LL',                                                                                                              # 29
+        # 'MPI-ESM1-2-LR',                                                                                                            # 6                         
+        # # 'KIOST-ESM',                                                                                                              # 7
+        # 'BCC-CSM2-MR',                                                                                                              # 8           
+        # 'GFDL-ESM4',                                                                                                                # 9         
+        # 'MIROC-ES2L',                                                                                                               # 10 
+        # 'NorESM2-LM',                                                                                                               # 11      
+        # # 'NorESM2-MM',                                                                                                             # 12                      
+        # 'MRI-ESM2-0',                                                                                                               # 13                            
+        # 'GFDL-CM4',                                                                                                                 # 14      
+        # 'CMCC-CM2-SR5',                                                                                                             # 15                
+        # 'CMCC-ESM2',                                                                                                                # 16                                    
+        # 'NESM3',                                                                                                                    # 17     
+        # 'ACCESS-ESM1-5',                                                                                                            # 18 
+        # 'CNRM-ESM2-1',                                                                                                              # 19 
+        # 'EC-Earth3',                                                                                                                # 20 
+        # 'CNRM-CM6-1',                                                                                                               # 21
+        # 'CNRM-CM6-1-HR',                                                                                                            # 22 
+        # 'KACE-1-0-G',                                                                                                               # 23            
+        # 'IPSL-CM6A-LR',                                                                                                             # 24
+        # 'ACCESS-CM2',                                                                                                               # 25 
+        # 'TaiESM1',                                                                                                                  # 26                      
+        # 'CESM2-WACCM',                                                                                                              # 27   
+        # 'CanESM5',                                                                                                                  # 28  
+        # 'UKESM1-0-LL',                                                                                                              # 29
         )                                                                                                                           #
     t_freqs = (                                                                                                                     #
         'daily',                                                                                                                    #
@@ -86,7 +92,7 @@ def set_specs():
     time_periods = (                                                                                                                # time_periods for metric (can be looped)
         # '1970-01:1970-01',                                                                                                        # test
         '1970-01:1999-12',                                                                                                          # historical
-        '2070-01:2099-12',                                                                                                          # warm
+        # '2070-01:2099-12',                                                                                                          # warm
         )                                                                                                                           #
     return datasets, t_freqs, lon_areas, lat_areas, resolutions, time_periods
 
@@ -134,7 +140,7 @@ def main():
         [print(f) for f in [d, t, lon, lat, r, p]]                                                                                  
         r_folder, r_filename = get_path(d, t, lon, lat, r, p)                                                                       
         # -- clear temp calc from associated folder --                                                                              
-        folder = f'{folder_scratch}/temo_calc/{r_folder}/{r_filename}'                                                              
+        folder = f'{folder_scratch}/temp_calc/{r_folder}/{r_filename}'                                                              
         os.makedirs(folder, exist_ok=True)                                                                                          
         temp_files = [f'{folder}/{f}' for f in os.listdir(folder) if f.endswith('.nc')]                                             # clearing the folder that is filled with partial results
         [os.remove(path_temp) for path_temp in temp_files]                                                                          
@@ -176,7 +182,7 @@ def main():
                                             walltime =          str(walltime_calc),                                                 # max job time
                                             mem =               mem_calc,                                                           # max mem
                                             ncpus =             str(ncpus_calc),                                                    # max cpus
-                                            env_variables =     env_variables,                                                      # job specs                                                                
+                                            env_variables =     env_variables,                                                      # job specs                                                   
                                             SU_project =        SU_project,                                                         # resource project
                                             data_projects =     data_projects,                                                      # available directories
                                             scratch_project =   storage_project,                                                    # storage options
@@ -233,3 +239,4 @@ def main():
 # == when this script is ran / submitted ==
 if __name__ == '__main__':
     main()
+
