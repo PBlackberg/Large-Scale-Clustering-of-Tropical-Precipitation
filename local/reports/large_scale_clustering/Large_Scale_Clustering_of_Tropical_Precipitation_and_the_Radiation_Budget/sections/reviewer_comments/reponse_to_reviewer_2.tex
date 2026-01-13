@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+\section*{Response to Reviewer 2}
+We deeply thank the referee for the insightful and helpful comments.
+The suggestions offered have resulted in revisions that signficantly enhances the quality of the manuscript.
+In the following, we have made a point-by-point response to the comments and revised the manuscript accordingly.
+
+\subsection*{Major comments}
+\begin{itemize}
+    \item Why does the ITCZ narrow under global warming in models?
+\end{itemize}
+We have added details about how a meridional precipitation clustering may relate to mechanisms associated with a ``narrowing'' of the ITCZ as proposed by Byrne et al. 2016 (lines: 449-465).
+
+\begin{itemize}
+    \item Why does an ``El Nin\~o like'' conditions favour stronger precipitation clustering?  
+\end{itemize}
+Thanks for highlighting this point.
+The interpretation of whether El Ni\~no conditions favours heavy precipitation clustering or not will depend on whether clustering is considered to increase with increasing total area coverage of heavy rainfall 
+($C$, previously $A_f$). In this framework we view high total area coverage of heavy rainfall as a temporal clustering of heavy rainfall, and the increase in $A_m$ independent of changes in $C$ as a spatial clustering of 
+an existing amount of heavy rainfall, both of which increase during El Ni\~no conditions. Some previous work have interpreted a reduction in for example N (number of heavy precipitaiton features) as a clustering, 
+but doesn't factor in that N is highly negatively correlated with $C$, and will therefore lead to different conclusions than for example $A_m$. 
+We have added some clarification of this in the revised manuscript (lines: 12-15, 416-420 and Figure 3 in the revised manuscript). Regarding the GINI index, 
+we have calculated the GINI index and included how this metric relate to our other clustering measures. 
+We find this metric is most closely related to changes in the total area coverage of heavy precipitation and show greater clustering during El Ni\~no conditions.
+Therefore, we hypothesize that the natural internal variability in ENSO has a different spatial pattern to the imposed SST pattern in the idealized study by Quan et al. 2025. 
+Importantly the natural variability includes a "horseshoe" shaped cooling in the Pacific during times of El Ni\~no conditions (Figure 7 in the revised manuscript) 
+and meridional clustering of heavy precipitation to the geographic and hydrological equator. We have added a discussion about this in the revised manuscript (lines: 416-430 and Figure S1 in the supporting information).
+
+\begin{itemize}
+    \item Is the low cloud amount response due to the change in RH or the change in static stability (Estimated Inversion Strength)?
+\end{itemize}
+Different areas of large-scale subsidence are thought to be controlled by different mechanisms.
+In stratocumulus regimes low cloudiness is thought to primarily be controlled by the Estimated Inversion Strength (EIS) (Blue shading in Figure 1a below).  
+In large part, the inversion strenth in these regions are set by warm free tropospheric air from deep convective regions 
+communicated to the stratocumulus regimes by equatorial waves, according to the weak temperature gradient approximation (WTG).
+For example, if the 500hpa temperature in deep convective regions increase and/or is more efficiently communicated to these regions, 
+the inversion strength increase and clouds are confined to lower heights, increasing the low cloudiness.    
+In other subsidence regions, referred to by Schiro et al. 2022 as seasonally meandering convective margins, the low-cloudiness is more tightly connected to the 
+relative humidity where a greater relative humidity promote low cloud formation (Blue shading in Figure 1b below).
+Schiro et al. hypothesize the drying in the seasonally meandering convective margins may be connected to large-scale circulation changes associated with a narrowing of the ITCZ, in which 
+a tendency for an ITCZ narrowing dries these subsidence regions, reducing low cloudiness and increasing model ECS. 
+In the present work, we have focused on the mechanisms of large-scale heavy precipitation clustering, and its influence on tropical-mean properties, rather than these specific distributions as it 
+relates to different mechanisms leading to changes in low cloudiness in different regions. We have eluded to the mechanism of a drying influence on low cloudiness in the original manuscript introduction 
+(lines: 94-101 in the revised manuscript), and a comment and figure panel has been added in section 5 and the supplement highlighting both drying and low cloudiness in different subsidence regions 
+for changes with $A_m$ and zonal and meridional spatial clustering from $P_z$, $P_{eq}$, and $P_{heq}$ (previously $C_z$, $C_m$, and $C_{heq}$) (lines: 589-591 and Figure S8g-h in the supporting information of the revised manuscript).
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{EIS_and_RH_controls_on_LCF.png}
+    \caption{From Schiro et al. 2022 supplementary material: \\
+    Supplementary Figure 2: 
+    Correlation maps illustrating where intermodel differences in changes in estimated inversion strength and free tropospheric relative humidity relate most closely to intermodel differences in changes in low cloud fraction. 
+    The Pearson correlation coefficients between 
+    (a) the change in estimated inversion strength (dEIS/dTs; K K-1) and the change in low cloud fraction (dLCF/dTs; \% $K^{-1}$) and 
+    (b) the change in 700 hPa relative humidity (dRH700/dTs; \% $K^{-1}$) and dLCF/dTs (\% $K^{-1}$). Stippling indicates that the relationships are statistically significant at 95\% (p $\le$ 0.05) among the 26 models used in the study.
+    }
+\label{spatial_preference_exampleMAPS}
+\end{figure}
+
+
+\begin{itemize}
+    \item How did the authors exactly do the the significance test and what is the p-value?
+\end{itemize}
+We have used the scipy python package to generate a Pearson correlation coefficient and its associated two-sided t-test significance. A description of the method has been added, and the p-values are added to those figures 
+(lines: 245-249 and Figure 5, 9 in the revised manuscript).
+
+\begin{itemize}
+    \item Expression ``greater clustering associated with greater zonal shift of heavy precipitation to the central pacific'' is misleading as some models move further away from the central pacific with increasing $A_m$. 
+\end{itemize}
+We mean this in a relative sense and the description has been edited (lines: 331-334).
+
+
+\begin{itemize}
+    \item What motivates the authors to pick the 5\% threshold? Could a slightly different threshold result in significantly opposite conclusions?
+\end{itemize}
+The purpose of the threshold is to isolate rainfall associated with strong convection, partly controlling for direct thermodynamic changes to rainfall with warming.
+We picked 5\% because Bony et al. 2020 highlight roughly 5\% of the tropical domain 30N-30S is covered by deep convection on average from their mesoscale clustering analysis of observed brightness temperature below 240 K.
+So, we aimed for the closest approximation. However, the GPCP precipitation field and brightness temperature field used by Bony et al. have considerable differences, and the choice of percentile for precipitation is still somewhat arbitrary.
+Early in this work we have explored 3\%, 5\% and 10\% thresholds, and during this revision all figures from the paper have been reproduced with these different thresholds.
+The overall conclusions from the paper are not sensitivie to the threshold, including;
+uniform increase in $A_m$ with warming, 
+generally increased proximity of heavy precipitation to the equator and hydrological equator with warming, 
+El Ni\~no conditions associated with increased clusterng in interannual variability and with warming, 
+and discrepencies between modelled and observed relative humidity and cloud signatures associated with clustering in interannual variability.  
+Differences include, when using the top 10\%, the drying associated with $C$ in interannual variability is weaker and not statistically significant, 
+instead change in $A_m$ for a given $C$ is associated with a drier tropics when using this threshold.
+Further, the $P_z$ relationship with $A_m$ for climatological change with warming is absent when using the top 10\%. 
+When using the top 3\% the proximity to the hydrological equator, $P_{heq}$ and $P_z$ explain close to 20\% of the variance each in $A_m$ with warming, where $P_{heq}$ is anticorrelated with changes in $A_m$. 
+This was not a surprise, as $P_z$ and $P_{heq}$ are somewhat anticorrelated when using the top 5\% threshold. The revised text mentions the testing, robustness, and caveats to using different thresholds 
+(line: 194-196, line: 549-557).
+
+
+\begin{itemize}
+    \item Local increase in temperature and reduction in relative humidity have seemingly inconsistent signs with a local increase in low clouds in the tropical south-eastern Pacific region. 
+    What controls low cloudiness in these regions?
+\end{itemize}
+In the Pacific near the coast of South America low cloudiness is primarily set by the inversion strength, controlled by mechanisms discussed above, rather than the local temperature and relative humidity. 
+
+
+\subsection*{Minor comments}
+\begin{itemize}
+    \item Colorbar: recommend variable specific colorbars, and using non-variable specific correlations with convention of blue to red.
+\end{itemize}
+We have edited all the figures accordingly.
+
+\begin{itemize}
+    \item Recommend using the same units for both measures of area 
+\end{itemize}
+We have converted the area fraction, $A_f$, to units of $km^2$, and changed the description and notation to total area coverage of heavy precipitation, $C$.
+
+\begin{itemize}
+    \item Two colormaps in one plot is unclear.
+\end{itemize}
+The purpose of the plot is mostly to illustrate examples of the scenes from which we quantify clustering. So, we have only kept the rainfall, but included a contour around the precipitaiton features to highlight 
+how they are identified (Figure 1 in the revised manuscript, also Figure 2 below)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{example_plot.pdf}
+    \caption{February daily snapshots of GPCP precipitation (blue colors) and heavy precipitation (black shading) features (red contour), 
+    with monthly specific humidity representing the median over the tropics (black contour). 
+    The panel titles show the total area coverage of heavy precipitation, $C$, and the mean area of precipitation features, $A_m$, with
+    the proximity of heavily precipitation points to the central pacific, equator, and hydrological equator below
+    (described in greater detail in Figure 4).
+    }
+    \label{spatial_preference_exampleMAPS}
+\end{figure}
+
+
+\begin{itemize}
+    \item Syntax: no Figure S10
+\end{itemize}
+Thanks, edited (lines: 562-564).
+
+
+\end{document}
+
+
+
+
+

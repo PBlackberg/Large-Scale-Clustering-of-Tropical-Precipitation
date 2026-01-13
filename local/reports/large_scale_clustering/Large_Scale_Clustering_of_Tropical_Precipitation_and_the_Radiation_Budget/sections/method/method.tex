@@ -48,34 +48,29 @@ we first interpolate the daily precipitation to a $2.8^\circ{}\times2.8^\circ{}$
 Next we define heavily precipitating regions as gridboxes for which the precipitation rate exceeds a threshold. 
 The threshold is calculated as the 95th spatial percentile of daily precipitation over all gridboxes in the tropics temporally averaged over the 30-year climatology 
 (or 25-year in the case of observations \add[\firstAuthorEdit]{and the high-resolution model}). 
-For the GPCP observations, this threshold is 16 mm day$^{-1}$ \add[\firstAuthorEdit]{and in models the threshold range between 15-17 mm day$^{-1}$}. 
+For the GPCP observations, this threshold is 16 mm day$^{-1}$ \add[\firstAuthorEdit]{and in models the interquartile range in thresholds is 15-17 mm day$^{-1}$}. 
 Distinct heavy precipitation features are identified as 8-connected contiguous regions of precipitation exceeding the threshold or single grid boxes if there are no neighboring connections.
-\add[\firstAuthorEdit]{While there are conceptual differences in what type of rainfall is represented by different percentile thresholds, 
-overall conclusions of the paper is not sensitive to using the 90th, 95th, or 97th percentile.} 
+\add[\firstAuthorEdit]{While there are conceptual differences in what type of rainfall that is represented by different percentile thresholds, 
+overall conclusions of the paper is not sensitive to using the 90th, 95th, or 97th percentile.}
 
 We define our primary measure of clustering, $A_m$, as the mean area of heavy precipitation features over the entire tropics.
 $A_m$ conceptually captures clustering by distinguishing scenes with many small precipitation features 
-and scenes where precipitation is aggregated into fewer and/or larger precipitating features (Figure \ref{spatial_preference_exampleMAPS}). 
+and scenes where precipitation is aggregated into fewer and/or larger precipitating features (Figure \ref{spatial_preference_exampleMAPS} and Figure 3c). 
 The mean area of features, $A_m$, was chosen due to its interpretability, however, we note that it is only one aspect of the large-scale organization of precipitation, 
-and $A_m$ does not describe important spatial characteristics 
-\change[\firstAuthorEdit]{
+and alone $A_m$ does not describe important spatial characteristics\change[\firstAuthorEdit]{
 such as the total area, shape, proximity, gradients of precipitation intensity, and location of precipitation features. 
 }{
 such as the total area coverage, proximity, location, shape, and gradients of precipitation intensity of precipitation features. 
-}
-\change[\firstAuthorEdit]{
+}\change[\firstAuthorEdit]{
 A number of other measures of large-scale clustering are analyzed and their interrelationship is presented in Figures S1-2 in the supporting information.
-}{
-A number of other measures of large-scale clustering are analyzed and the interrelationship of a key subset of metrics is presented in Figures S1-2 in the supporting information.
-}
-An important aspect of our method is that, by definition, regions of heavy precipitation occupy 5\% of the domain on average. 
+}{A number of other measures of large-scale clustering are analyzed and the interrelationship between a subset of metrics is presented in Figures S1-2 in the supporting information.
+}An important aspect of our method is that, by definition, regions of heavy precipitation occupy 5\% of the domain on average. 
 Thus when comparing two climates, the \change[\firstAuthorEdit]{mean}{time-mean} area \change[\firstAuthorEdit]{fraction of}{covered by} heavy precipitation $\overline{C}$ remains constant. 
-Differences in the mean area of features, $A_m$, between climates are entirely due to a reorganization of precipitation, 
-\change[\firstAuthorEdit]{
+Differences in the mean area of features, $A_m$, between climates are entirely due to a reorganization of precipitation,\change[\firstAuthorEdit]{
 and changes in $A_m$ are inversely related to the mean number of precipitation features. 
 }{
-where an increase in $A_m$ increases the general proximity of heavily precipitating points to each other, $P_g$, in that the number of distinct precipitation features (N) is reduced 
-(mathematically directly related as reciprocals for the same total area coverage, $Am = C / N$).
+where an increase in $A_m$ increases the general proximity of heavily precipitating points to each other in that the number of distinct precipitation features (N) is reduced 
+(proportional as reciprocals for the same total area coverage, $Am = C / N$).
 }
 However, the above constraint does not apply to the precipitation distribution during a given month. 
 Indeed, as we shall see, an important driver of variations in tropical precipitation clustering in interannual variability 
@@ -93,11 +88,12 @@ The trend is estimated by a first-order linear least squares regression of the d
 
 As we will see, for interannual variability, the mean area of features, $A_m$, and the area \change[\firstAuthorEdit]{fraction}{coverage} of precipitation, \change[\firstAuthorEdit]{$A_f$}{$C$}, 
 are strongly correlated with each other and to the large-scale climatic state. 
-\change[\firstAuthorEdit]{
-To estimate the individual effect of $A_m$, we apply the method of Pearson partial correlation
-}{
-To estimate the individual effect of the general proximity of heavily precipitating points to each other (Figure 3c), $P_g$, 
-analogous to the climatological change in $Am$ with warming, we apply the method of Pearson partial correlation
+\add[\firstAuthorEdit]{The total area coverage of heavy precipitation, $C$, is primarily interpreted in the present framework as a confounding variable, 
+partly connected to the tropical-mean temperature, but best described by the tropical-mean rainfall rate
+($r\sim0.35$ and $r\sim0.86$ respectively in Fgiure S1 in supporting information). However, the variations in total coverage of heavy precipitation can also be viewed as a tropical temporal clustering of rainfall independent of spatial clustering (Figure 3c, x-axis).}
+\change[\firstAuthorEdit]{To estimate the individual effect of $A_m$, we apply the method of Pearson partial correlation
+}{To estimate the individual effect of the general spatial clustering or proximity of heavily precipitating points to each other, 
+analogous to the climatological change in $A_m$ with warming (Figure 3c, y-axis), we apply the method of Pearson partial correlation
 }
 \citep{mardia1979multivariate}.
 The partial correlation $r(X,Y|Z)$ represents the relationship between variables $X$ and $Y$ after the removal of the effect of $Z$, and is given by
@@ -107,10 +103,9 @@ The partial correlation $r(X,Y|Z)$ represents the relationship between variables
 where $r(X,Y)$ is the regular correlation between $X$ and $Y$. 
 \change[\firstAuthorEdit]{
 The significance of partial correlations is evaluated using the standard t-test for partial correlations.
-}{
-For partial correlations and simple linear regression, relationships are considered significant if the correlation coefficient is large relative to its uncertainty, 
+}{For partial correlations and simple linear regression, relationships are considered significant if the correlation coefficient is large relative to its uncertainty, 
 as quantified by a standard two-sided t-test, such that the probability of observing a correlation by chance under the null hypothesis of no correlation is below 5\%. 
-However, further robustness testing is applied for model-spread correlations, in which potential outliers are removed before calculating the correlations.
+However, further robustness testing is applied for model-spread correlations, in which potential outliers are removed before calculating the correlation and significance.
 }
 
 \clearpage
@@ -133,7 +128,7 @@ However, further robustness testing is applied for model-spread correlations, in
     }{
     February daily snapshots of GPCP precipitation (blue colors) and heavy precipitation (black shading) features (red contour), 
     with monthly specific humidity representing the median over the tropics (black contour). 
-    The panel titles show the total area coverage of heavy precipitation, $C$, and the mean area of precipitation features, $Am$, with
+    The panel titles show the total area coverage of heavy precipitation, $C$, and the mean area of precipitation features, $A_m$, with
     the proximity of heavily precipitation points to the central pacific, equator, and hydrological equator below
     (described in greater detail in Figure 4).
     }
@@ -186,3 +181,7 @@ However, further robustness testing is applied for model-spread correlations, in
 % \label{spatial_preference_warmingSCATTER_BOX2}
 % \end{figure}
 % \clearpage
+
+% However, we we note tropical-mean rainfall rate for a given total area coverage have a weak negative relationship and can be significantly correlated across percentiles.
+% That is, independent spatial clustering of the 90th percentile rainfall is moderately correlated with the total area coverage of the 95th percentile precipitation. 
+

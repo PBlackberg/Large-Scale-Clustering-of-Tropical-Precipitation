@@ -48,23 +48,29 @@
 \textbf {Metric} & \textbf{description} \\
 \hline
         $A_m$ & Mean area of heavy precipitation features. \\
-        $A_f$ & Total area of heavy precipitation features as a fraction of the tropical domain area. \\
-        $N$ & Number of heavy precipitation features. \\
-        $C_z$ & Mean distance of heavy precipitation points to the meridian given by the longitude 180◦E. \\
-        $C_m$ & Mean distance of heavy precipitation points to the equator. \\
-        $C_{heq}$ & Mean distance of heavy precipitation points to the hydrological equator, where the hydrological equator is defined as the latitude of highest specific humidity at 700 hPa as a function of longitude for the associated month. \\
-        $T$ & Tropical-mean 2 m air temperature. \\
+        $A_f$ & Total area of heavy precipitation features. \\
+        $A_m|C$ & Spatial clustering from changes in mean area, independent of total area coverage ($A_m|C = A_m - \alpha C$), where $\alpha$ is a constant. \\
+        $P_z$ & Mean distance of heavy precipitation points to the meridian given by the longitude 180$^\circ$E. \\
+        $P_{eq}$ & Mean distance of heavy precipitation points to the geographic equator. \\
+        $P_{heq}$ & Mean distance of heavy precipitation points to the hydrological equator, where the hydrological equator is defined as the latitude of highest specific humidity at 700 hPa as a function of longitude for the associated month. \\
+        $GINI$ & Relative dispersion measure of the precipitation field, quantifying the "uneveness" of the distribution normalized by the mean (GINI; Gini, 1912). \\
+        $T_s$ & Tropical-mean 2m air temperature. \\
+        $T_{500hpa}$ & Tropical-mean temperature at 500 hPa. \\
         $ONI$ & Three-month rolling average SST anomaly in the Ni\~no3.4 region (5$^\circ{}$S- 5$^\circ{}$N, 120$^\circ{}$-170$^\circ{}$W), relative to the full range of years used in the climatology. \\
-        $OLR$ & Tropical-mean outgoing longwave radiation. \\
+        $SOI$ & standardized deseasonalized monthly anomalies of the surface pressure difference between Tahiti (17.6$^\circ{}$S, 149.6$^\circ{}$W) and Darwin (12.5$^\circ{}$S, 130.9$^\circ{}$E), calculated here as the three-month rolling average. \\
         $LCF_d$ & Tropical-mean low-cloud fraction, in regions where the monthly-mean vertical pressure velocity at 500 hPa is positive (in regions of descent). \\
-        $RH$ & Tropical-mean relative humidity at 500 hPa. \\
+        $RH_{500hpa}$ & Tropical-mean relative humidity at 500 hPa. \\
         $HCF_a$ & Tropical-mean high-cloud fraction, in regions where the monthly-mean vertical pressure velocity at 500 hPa is negative (in regions of ascent). \\
-        $F_{pr10}$ & Frequency of gridpoints exceeding 10 mm day$^{-1}$. \\
-        $A_a$ & Area covered by negative monthly-mean vertical pressure velocity at 500 hPa, as a fraction of the tropical domain area (area of ascent). \\
-        $\sigma(A_f)$ & Standard deviation of total area fraction of heavy precipitation, $A_f$. \\
+        $A_a$ & Area where the monthly-mean vertical pressure velocity at 500 hPa is negative, as a fraction of the tropical domain area (area of ascent). \\
         $ECS$ & Equilibrium Climate Sensitivity. \\
 \hline
 \end{tabular}
 \label{tab:metrics}
 \end{table*}
 
+
+% $A_f$ & Total area of heavy precipitation features as a fraction of the tropical domain area. \\
+% $N$ & Number of heavy precipitation features. \\
+% $OLR$ & Tropical-mean outgoing longwave radiation. \\
+% $F_{pr10}$ & Frequency of gridpoints exceeding 10 mm day$^{-1}$. \\
+% $\sigma(A_f)$ & Standard deviation of total area fraction of heavy precipitation, $A_f$. \\
